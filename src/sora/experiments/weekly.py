@@ -7,7 +7,6 @@ from sora.data.parser import normalize_questionnaire_dataframe, parse_slot_list,
 from sora.genetic_algorithm.constraints import check_feasibility
 from sora.genetic_algorithm.optimizer import GeneticAlgorithmOptimizer
 from sora.genetic_algorithm.representation import Allele
-from sora.hill_climbing.local_search import run_hill_climbing
 from sora.utils.metrics import calculate_debt_installment
 
 DAYS = ["Senin", "Selasa", "Rabu", "Kamis", "Jumat", "Sabtu", "Minggu"]
