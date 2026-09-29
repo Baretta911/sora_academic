@@ -1,0 +1,31 @@
+# Python caches
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Tool caches
+.pytest_cache/
+.pytest-tmp/
+.ruff_cache/
+.mypy_cache/
+.pycache_compile/
+
+# Local logs from smoke/demo runs
+*.log
+
+# Local environment
+.venv/
+venv/
+
+# Streamlit local state
+.streamlit/
+
+# Generated thesis outputs
+thesis_output_academic/
+results/
+
+# Frontend build and dependency artifacts
+frontend/node_modules/
+frontend/dist/
+frontend/.vite/
+frontend/.env.local

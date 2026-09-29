@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<profile>
+ <version>LibreOffice v1</version>
+ <device>
+  <type>opencl</type>
+  <name>Intel(R) HD Graphics 530</name>
+  <driver>31.0.101.2111</driver>
+  <time>23489</time>
+  <errors>false</errors>
+ </device>
+ <device>
+  <type>native</type>
+  <time>6070272</time>
+  <errors>false</errors>
+ </device>
+</profile>

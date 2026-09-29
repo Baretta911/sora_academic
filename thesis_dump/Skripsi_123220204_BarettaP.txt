@@ -1,0 +1,840 @@
+OPTIMASI JADWAL KERJA DAN ISTIRAHAT MENGGUNAKAN ALGORITMA GENETIKA PENDEKATAN PADA PEKERJA DENGAN POLA TIDAK TERATUR
+TUGAS AKHIR
+Disusun Oleh :
+BARETTA PANUJU LUHUR
+123220204
+PROGRAM STUDI INFORMATIKA 
+JURUSAN INFORMATIKA
+FAKULTAS TEKNIK INDUSTRI
+UNIVERSITAS PEMBANGUNAN NASIONAL “VETERAN” 
+YOGYAKARTA
+2026
+OPTIMASI JADWAL KERJA DAN ISTIRAHAT MENGGUNAKAN ALGORITMA GENETIKA PENDEKATAN PADA PEKERJA DENGAN POLA TIDAK TERATUR
+TUGAS AKHIR
+Tugas Akhir ini sebagai salah satu syarat untuk memperoleh gelar sarjana Informatika 
+Universitas Pembangunan Nasional “Veteran” Yogyakarta
+Disusun Oleh :
+BARETTA PANUJU LUHUR
+123220204
+PROGRAM STUDI INFORMATIKA 
+JURUSAN INFORMATIKA
+FAKULTAS TEKNIK INDUSTRI
+UNIVERSITAS PEMBANGUNAN NASIONAL “VETERAN” 
+YOGYAKARTA
+2026
+HALAMAN PENGESAHAN
+OPTIMASI JADWAL KERJA DAN ISTIRAHAT MENGGUNAKAN
+ALGORITMA GENETIKA PENDEKATAN PADA PEKERJA DENGAN
+POLA TIDAK TERATUR
+Disusun oleh:
+Baretta Panuju Luhur
+123220204
+Telah diperiksa dan disetujui oleh pembimbing untuk diseminarkan
+Pada tanggal: ………
+Menyetujui,
+Pembimbing
+Dr. Heru Cahya Rustamaji, S.Si., M.T.
+NIDN. 0514067101
+SURAT PERNYATAAN
+KARYA ASLI TUGAS AKHIR
+Sebagai mahasiswa Program Studi Informatikai Fakultas Teknik Industri Universitas Pembangunan Nasional “Veteran” Yogyakarta, yang bertanda tangan di bawah ini, saya:
+Nama	: BARETTA PANUJU LUHUR
+NIM	: 123220204
+Menyatakan bahwa karya ilmiah saya yang berjudul:
+Optimasi Jadwal Kerja Dan Istirahat Menggunakan Algoritma Genetika Pendekatan Pada Pekerja Dengan Pola Tidak Teratur
+Merupakan karya asli saya dan belum pernah dipublikasikan dimanapun. Apabila di kemudian hari, karya saya disinyalir bukan merupakan karya asli saya, maka saya bersedia menerima konsekuensi apa pun yang diberikan Program Studi Informatika Fakultas Teknik Industri Universitas Pembangunan Nasional “Veteran” Yogyakarta kepada saya.
+Demikian surat pernyataan ini saya buat dengan sebenarnya.
+Dibuat di	: Yogyakarta
+Pada Tanggal	:
+Yang Menyatakan
+Baretta Panuju Luhur
+NIM. 123220204
+PERNYATAAN BEBAS PLAGIASI
+Saya yang bertanda tangan di bawah ini:
+Nama	: BARETTA PANUJU LUHUR
+NIM	: 123220204
+Prodi	: Informatika
+Dengan ini saya menyatakan bahwa judul Tugas Akhir
+Optimasi Jadwal Kerja Dan Istirahat Menggunakan Algoritma Genetika Pendekatan Pada Pekerja Dengan Pola Tidak Teratur
+adalah hasil kerja saya dan benar bebas dari plagiasi kecuali cuplikan serta ringkasan yang terdapat di dalamnya telah saya jelaskan sumbernya (Sitasi) dengan jelas. Apabila pernyataan ini terbuktu tidak benar maka saya bersedia menerima sanksi sesuai peraturan Mendiknas RI No 17 Tahun 2010 dan Peraturan Perundang-undangan yang berlaku.
+Demikian surat pernyataan ini saya buat dengan penuh tanggung jawab.
+Dibuat di	: Yogyakarta
+Pada Tanggal	:
+Yang Menyatakan
+Baretta Panuju Luhur
+NIM. 123220204
+ABSTRAK
+Abstrak memuat tiga bagian utama yaitu masalah penelitian, metode penelitian, dan hasil penelitian yang dituliskan dalam tiga paragraf. Paragraf pertama, mencakup permasalahan yang diangkat menjadi topik penelitian. Paragraf kedua, berisi metode penelitian yang digunakan, beserta proses akuisisi data, serta metode pengembangan sistem yang digunakan. Paragraf ketiga, memaparkan hasil penelitian, termasuk hasil pengujian, jawaban dari permasalahan penelitian, serta kontribusi penelitian.
+Abstrak ditulis dengan menggunakan bahasa Indonesia yang baku dengan jumlah kata minimal 300 kata dan tidak lebih dari satu halaman. Abstrak harus mampu menggambarkan keseluruhan dari penelitian yang telah dilaksanakan, mulai dari masalah penelitian sampai hasil penelitian. Tidak diperbolehkan mengacu pustaka, gambar, maupun tabel.
+Pada akhir abstrak, dicantumkan kata kunci yang merupakan kata-kata atau frasa penting yang mencerminkan inti dari topik penelitian. Kata kunci diambil dari bidang penelitian dan topik penelitian.
+Kata Kunci: Jumlah kata kunci antara 3 sampai dengan 5 kata dipisah dengan koma
+ABSTRACT
+The abstract consists of three main parts containing research problems, research methods, and research results, written in three paragraphs. The first paragraph, includes problems raised as a research topic. Abstract in English is italicized.
+Keywords: xxxxxxx, xxxx, xxxxxxxxx, xxxxxxxxxxxxx
+KATA PENGANTAR
+DAFTAR TABEL
+Tabel 2. 1 State of The Art	25
+Tabel 3. 1 Kode Aktivitas pada Representasi Kromosom	15
+Tabel 3. 2 Komponen Dynamic Penalty pada Fungsi Fitness	20
+Tabel 3. 3 Modul Utama Implementasi Program	Error! Bookmark not defined.
+DAFTAR GAMBAR
+Gambar 2. 1 Two Process Model of Sleep Regulation	7
+Gambar 2. 2 Pengukuran Social Jetlag.	8
+Gambar 2. 3 Genetic Algorithm dan Hill Climbing	Error! Bookmark not defined.
+Gambar 3. 1 Alur Metodologi Penelitian	29
+Gambar 3. 2 Representasi 48 Slot Harian	15
+Gambar 3. 3 Representasi Kromosom Jadwal Harian	16
+Gambar 3. 4 Mandatory Core, Transit Slot, dan Mandatory Absolute	31
+Gambar 3. 5 Alur Repair Chromosome	23
+Gambar 3. 6 Alur Genetic Algorithm	34
+Gambar 3. 8 Alur Genetic Algorithm dan Hill Climbing	Error! Bookmark not defined.
+Gambar 3. 10 Grid Search	40
+Gambar 3. 11 Baseline Comparison dan Evaluasi	42
+[Heading 1] BAB I
+PENDAHULUAN
+[Heading 2] Latar Belakang Masalah
+Tidur merupakan kebutuhan fisiologis mendasar yang memengaruhi hampir seluruh aspek kesehatan dan fungsi kognitif manusia. Bukti ilmiah yang terus berkembang menunjukkan bahwa bukan hanya durasi tidur yang cukup, melainkan juga regularitas atau konsistensi pola tidur dari hari ke hari merupakan faktor yang sama pentingnya bagi kesehatan jangka panjang.  melalui Two-Process Model menegaskan bahwa regulasi tidur dikendalikan oleh interaksi dua proses, yakni proses homeostat (tekanan tidur yang terakumulasi saat terjaga) dan proses sirkadian (ritme biologis 24 jam), sehingga ketidaksesuaian antara keduanya akan mengakibatkan degradasi kualitas tidur secara sistematis.  lebih lanjut membuktikan bahwa pacemaker sirkadian internal manusia secara aktif menentukan propensitas tidur, struktur tidur, dan aktivitas gelombang lambat EEG, menegaskan pentingnya keselarasan jadwal tidur dengan ritme biologis.
+Permasalahan yang kini meluas di masyarakat modern adalah ketidaksesuaian antara jam biologis internal dan tuntutan jadwal sosial-aktivitas eksternal, yang dikenal sebagai social jetlag .  mendefinisikan social jetlag sebagai selisih waktu tidur antara hari kerja dan hari libur yang mencerminkan seberapa jauh seseorang hidup di luar ritme sirkadiannya akibat tuntutan jadwal sosial, dan menemukan bahwa kondisi ini berkorelasi signifikan dengan peningkatan indeks massa tubuh serta penurunan kesehatan metabolik.  menambahkan bahwa social jetlag yang persisten berdampak pada peningkatan konsumsi stimulan, penurunan performa kognitif, dan peningkatan kelelahan kumulatif. Di kalangan mahasiswa dan pekerja muda Indonesia, permasalahan ini semakin relevan seiring intensifikasi penggunaan perangkat digital dan ketidakteraturan jadwal studi maupun kerja.
+Urgensi penanganan regularitas tidur diperkuat oleh serangkaian studi terbaru.  memperkenalkan Sleep Regularity Index (SRI) sebagai metrik kuantitatif yang mengukur konsistensi jadwal tidur-bangun, dan menunjukkan bahwa pola tidur yang tidak konsisten berkorelasi signifikan dengan penurunan performa akademik serta keterlambatan fase sirkadian.  lebih jauh membuktikan bahwa SRI merupakan prediktor mortalitas yang lebih kuat dibandingkan durasi tidur semata, sementara  dalam sebuah konsensus internasional menegaskan bahwa regularitas tidur merupakan komponen penting dari higiene tidur yang sehat.  juga menemukan bahwa iregularitas tidur berhubungan dengan peningkatan risiko kejadian kardiovaskular dalam studi kohort besar MESA, semakin memperkuat dasar ilmiah perlunya intervensi berbasis regularitas tidur.
+Dari perspektif ilmu komputer, permasalahan penjadwalan tidur dan aktivitas dapat diformulasikan sebagai masalah optimasi kombinatorial berkendala. Dalam formulasi ini, satu hari dibagi menjadi 48 slot diskret dengan interval 30 menit, dan solusi yang dihasilkan harus memenuhi kendala aktivitas wajib sekaligus mempertimbangkan kualitas pemulihan tidur, durasi tidur aktual, tingkat kelelahan akibat aktivitas, serta regularitas waktu mulai tidur antarhari. Regularitas tidur dalam penelitian ini tidak dihitung menggunakan nilai Sleep Regularity Index (SRI) secara penuh, melainkan dimodelkan melalui penalti terhadap perubahan waktu mulai tidur utama dibandingkan hari sebelumnya. Permasalahan ini memiliki ruang solusi yang besar sehingga pendekatan heuristik sederhana, seperti greedy schedule, berpotensi menghasilkan solusi suboptimal karena tidak mengevaluasi konsekuensi jadwal secara menyeluruh.
+Di sisi lain, Goldberg  membuktikan bahwa Genetic Algorithm (GA) merupakan pendekatan metaheuristik berbasis populasi yang efektif untuk ruang solusi besar dan tidak linier melalui mekanisme seleksi, pindah silang, dan mutasi. Meskipun demikian, GA murni rentan terhadap konvergensi prematur dan memiliki kelemahan inheren pada fase eksploitasi lokal (local exploitation). GA sering kali membutuhkan waktu komputasi (konvergensi) yang sangat lama untuk memperbaiki detail-detail kecil pada kromosom, seperti menutup celah waktu kosong (micro-gaps) atau merapikan waktu transisi antar aktivitas. Untuk menutupi kelemahan tersebut,  kemudian memperkenalkan Genetic Algorithm dan Hill Climbing (MA) yang menggabungkan eksplorasi global GA dengan eksploitasi lokal Hill Climbing (HC), menghasilkan konvergensi lebih cepat dan kualitas solusi lebih tinggi pada masalah optimasi kombinatorial berkendalikan.
+Penelitian ini memperkenalkan sistem  sebagai implementasi Genetic Algorithm dan Hill Climbing yang menggabungkan Genetic Algorithm dan Hill Climbing untuk mengoptimalkan jadwal tidur dan aktivitas selama tujuh hari. Komponen inti sistem mencakup mekanisme repair constraint untuk menjaga kelayakan jadwal, fungsi fitness komposit yang mempertimbangkan recovery reward, durasi tidur aktual, dynamic penalty, dan penalti regularitas waktu tidur antarhari, serta modul evaluasi multi-subjek yang menghasilkan laporan terstruktur. Sistem diimplementasikan melalui antarmuka web berbasis Streamlit untuk mendukung interaksi pengguna dan visualisasi hasil optimasi. Penelitian ini berupaya memberikan pendekatan komputasional terhadap perencanaan istirahat pada pola aktivitas yang tidak teratur melalui metode metaheuristik hibrida.
+[Heading 2] Rumusan Masalah
+Bagaimana merancang dan mengimplementasikan sistem optimasi jadwal tidur dan aktivitas selama tujuh hari berbasis Genetic Algorithm dan Hill Climbing yang menggabungkan Genetic Algorithm dan Hill Climbing, menerapkan mekanisme repair constraint pada representasi 48 slot waktu per hari, menggunakan fungsi fitness yang mempertimbangkan pemulihan tidur, kelelahan akibat aktivitas, durasi tidur, dan penalti regularitas waktu tidur antarhari, serta membandingkan kinerjanya terhadap metode greedy schedule dan fixed schedule pada pengujian multi-subjek melalui aplikasi berbasis web?
+[Heading 2] Batasan Masalah
+Agar penelitian ini dapat diselesaikan secara fokus dan terukur, batasan-batasan masalah yang ditetapkan adalah sebagai berikut:
+Sistem hanya mengoptimalkan jadwal tidur dalam cakrawala waktu tujuh hari ke depan; optimasi jangka panjang lebih dari tujuh hari berada di luar cakupan penelitian.
+Evaluasi komparatif dilakukan terhadap dua metode baseline, yaitu greedy dan fixed schedule; algoritma metaheuristik lain tidak diuji dalam penelitian ini.
+Parameter algoritma (ukuran populasi, laju mutasi, laju crossover, jumlah iterasi Hill Climbing) dioptimalkan melalui eksperimen kalibrasi, bukan melalui prosedur auto-tuning adaptif.
+Penelitian ini hanya berfokus pada aspek teknis pemodelan dan evaluasi kualitas jadwal tidur, tanpa membahas aspek klinis diagnostik medis terhadap gangguan tidur.
+Aktivitas yang dimodelkan terdiri dari tidur utama, kerja, nap, santai, dan kuliah.
+Regularitas tidur dihitung sebagai penalti perubahan waktu mulai tidur utama, bukan perhitungan SRI klinis penuh.
+Data biometrik wearable tidak digunakan.
+Sistem menghasilkan rekomendasi komputasional dan bukan alat diagnosis medis.
+.
+[Heading 2] Tujuan Penelitian
+Merancang dan mengimplementasikan sistem Sleep Optimization and Rest Arrangement (SORA) berbasis Genetic Algorithm dan Hill Climbing yang menggabungkan Genetic Algorithm dan Hill Climbing, dilengkapi mekanisme repair constraint pada representasi 48 slot waktu per hari serta fungsi fitness komposit yang mempertimbangkan recovery reward, durasi tidur aktual, dynamic penalty, dan penalti regularitas waktu tidur antarhari. Penelitian ini juga bertujuan mengevaluasi kinerja sistem secara komparatif terhadap metode greedy schedule dan fixed schedule pada skenario optimasi mingguan dan pengujian multi-subjek melalui aplikasi web Streamlit.
+[Heading 2] Manfaat Penelitian
+Secara akademis, penelitian ini diharapkan dapat memperkaya kajian mengenai penerapan algoritma metaheuristik hibrida pada permasalahan optimasi jadwal tidur dan aktivitas, khususnya melalui penggunaan penalti regularitas waktu tidur antarhari yang terinspirasi oleh konsep Sleep Regularity Index. Secara praktis, penelitian ini menghasilkan purwarupa aplikasi yang dapat membantu pengguna merencanakan waktu tidur dan aktivitas berdasarkan kendala jadwal yang dimiliki. Bagi institusi, sistem yang dibangun dapat menjadi referensi tambahan dalam kajian optimasi, kecerdasan buatan, dan pengembangan aplikasi pendukung perencanaan aktivitas personal.
+[Heading 2] Tahapan Penelitian
+Penelitian ini menggunakan pendekatan rancangan dan implementasi algoritma optimasi. Pengembangan aplikasi dilakukan dengan model pengembangan perangkat lunak Prototyping, sedangkan evaluasi kinerja algoritma dilakukan melalui eksperimen komputasional. Eksperimen tersebut mencakup kalibrasi parameter menggunakan grid search, optimasi jadwal mingguan, perbandingan terhadap metode baseline, dan pengujian multi-subjek. Adapun tahapan utama penelitian ini meliputi:
+Perencanaan dan Studi Literatur
+Mengkaji literatur terkait regulasi tidur sirkadian, metrik kualitas tidur (sleep debt, fatigue, SRI), serta Genetic Algorithm dan Hill Climbing.
+Akuisisi Data Preferensi Subjek
+Mengumpulkan informasi jendela waktu tidur yang diizinkan, target durasi tidur, dan kendala aktivitas harian.
+Perancangan Sistem Optimasi
+Merancang representasi solusi berbasis 48 slot per hari, formulasi fitness function multikriteria, dan struktur Genetic Algorithm dan Hill Climbing.
+Implementasi Sistem
+Implementasi menggunakan bahasa pemrograman Python dengan pustaka inti optimasi (src/sora), layanan API berbasis FastAPI (api.py), serta antarmuka web berbasis React dan Streamlit.
+Evaluasi dan Analisis Hasil
+Membandingkan Genetic Algorithm dan Hill Climbing terhadap baseline (greedy dan fixed schedule) menggunakan metrik fitness, fatigue akhir, dan durasi tidur.
+[Heading 2] Sistematika Penulisan
+adapun proses penulisan skripsi terdapat lima bagian yaitu:
+BAB I : PENDAHULUAN
+Berisi latar belakang masalah, rumusan masalah, batasan masalah, tujuan dan manfaat penelitian, serta sistematika penulisan.
+BAB II : TINJAUAN LITERATUR
+Membahas dasar teori dan konsep yang relevan, mencakup kajian mengenai scheduling optimization, arsitektur Algoritma Genetika, serta teori-teori terkait Ritme Sirkadian dan kebutuhan tidur.
+BAB III : METODOLOGI PENELITIAN
+Menjelaskan pendekatan Prototyping, tahapan pengumpulan data, perancangan teknis model Algoritma Genetika (representasi kromosom dan operator), serta formulasi matematis dari fungsi fitness.
+BAB IV : HASIL DAN PEMBAHASAN
+Memaparkan hasil implementasi dan pengujian model. Fokus utama adalah pada hasil studi komparasi Genetic Algorithm dan Hill Climbing vs. Baseline dan analisis kinerja berdasarkan metrik pemulihan fisiologis.
+BAB V : PENUTUP
+Berisi kesimpulan yang ditarik berdasarkan hasil pembahasan dan saran serta rekomendasi untuk pengembangan penelitian lanjutan.
+[Heading 1] BAB II
+[Heading 1] TINJAUAN LITERATUR
+[Heading 2] 2.1 Landasan Teori
+Subbab ini menyajikan dasar teori dan konsep yang menjadi landasan penelitian. Teori-teori diuraikan secara hierarkis, dimulai dari konsep biologis yang melatarbelakangi permasalahan tidur, dilanjutkan dengan konstruk pengukuran yang relevan, kemudian fondasi matematis optimasi kombinatorial, dan diakhiri dengan teori algoritma yang diterapkan dalam sistem yang dikembangkan.
+2.1.1 Model Dua Proses Regulasi Tidur (Two-Process Model)
+Tidur diregulasi oleh dua proses fisiologis yang saling berinteraksi, sebagaimana dirumuskan oleh . Proses pertama, yang disebut proses homeostatis (Process S), merepresentasikan tekanan tidur yang terakumulasi selama seseorang terjaga dan berkurang secara eksponensial selama tidur berlangsung. Proses kedua, yang disebut proses sirkadian (Process C), mencerminkan osilasi biologis endogen dengan periode mendekati 24 jam yang dikendalikan oleh nukleus suprakiasmatik (SCN) di hipotalamus. Propensitas tidur pada setiap titik waktu ditentukan oleh interaksi aditif kedua proses ini, di mana tidur yang optimal cenderung terjadi ketika Process S mencapai ambang atas bersamaan dengan fase sirkadian yang selaras.
+Dijk dan Czeisler  memperkuat model ini melalui paradigma desinkronisasi paksa (forced desynchrony protocol) yang memisahkan siklus tidur-bangun dari ritme sirkadian internal. Eksperimen tersebut membuktikan bahwa pacemaker sirkadian internal secara aktif menentukan distribusi tidur REM, proporsi gelombang lambat EEG, dan efisiensi tidur. Temuan ini menegaskan bahwa kualitas tidur tidak hanya bergantung pada durasi, tetapi juga pada keselarasan temporal antara jadwal tidur dan fase sirkadian. Variabilitas individual pada laju akumulasi dan peluruhan Process S  menjadikan pemodelan tidur perlu mempertimbangkan parameter yang dipersonalisasi.
+Gambar 2. 1 Two Process Model of Sleep Regulation
+2.1.2 Social Jetlag
+Social jetlag adalah kondisi ketidakselarasan antara jam biologis internal individu dengan jadwal sosial yang dituntut oleh lingkungan eksternal, seperti jam kerja atau jam perkuliahan. Istilah ini diperkenalkan oleh Wittmann et al.  berdasarkan survei kronobiologi berskala besar, dan dikembangkan lebih lanjut oleh Roenneberg et al. . Kondisi ini diukur sebagai selisih waktu titik tengah tidur antara hari kerja dan hari libur. Individu dengan social jetlag yang substansial secara fisiologis mengalami beban yang sebanding dengan perjalanan melintasi zona waktu secara berulang, yang memberikan tekanan kumulatif pada sistem sirkadian.
+Wittmann et al.  menemukan bahwa social jetlag berkorelasi positif dengan konsumsi stimulan seperti kafein dan nikotin, serta dengan peningkatan kelelahan yang dilaporkan secara subjektif. Roenneberg et al.  melaporkan bahwa setiap satu jam social jetlag berhubungan dengan peningkatan sekitar 33% odds rasio kelebihan berat badan dalam sampel yang diteliti, yang mencerminkan dampak gangguan sirkadian terhadap regulasi metabolik, meskipun sifat kausalitasnya masih menjadi subjek penelitian lebih lanjut.
+Dalam penelitian ini, konsep social jetlag menjadi dasar penting dalam menilai bahwa jadwal tidur yang baik tidak cukup hanya berdurasi memadai, tetapi juga perlu menjaga kestabilan waktu tidur antarhari.
+Gambar 2. 2 Pengukuran Social Jetlag.
+2.1.3 Sleep Debt dan Fatigue Index
+Sleep debt didefinisikan sebagai defisit kumulatif antara durasi tidur aktual dan kebutuhan tidur biologis individu . Pemulihan dari sleep debt menunjukkan dinamika yang tidak linear: defisit jangka pendek memerlukan beberapa malam tidur adekuat untuk pulih, sedangkan defisit kronik memerlukan periode pemulihan yang lebih panjang . Van Dongen et al.  membuktikan melalui desain dosis-respons bahwa restriksi tidur kronik pada 6 jam per malam selama 14 hari menghasilkan penurunan kognitif yang secara kuantitatif setara dengan dua malam deprivasi total, meskipun subjek tidak melaporkan kantuk berat akibat adaptasi perseptual.
+Fatigue index merupakan konstruk yang lebih luas dari sleep debt, yang mencakup efek kelelahan bergantung waktu dalam siklus sirkadian serta beban aktivitas selama periode terjaga . Model berbasis biomaterika seperti SAFTE (Sleep, Activity, Fatigue, and Task Effectiveness) mengkuantifikasi hubungan antara akumulasi kelelahan, fase sirkadian, dan efektivitas tugas . Dalam pemodelan penjadwalan, fatigue index berfungsi sebagai penalti terhadap jadwal yang mendistribusikan tidur pada fase sirkadian yang tidak kondusif, bahkan apabila durasi total tidur telah terpenuhi.
+Dengan demikian, sleep debt dan fatigue index digunakan sebagai landasan teoritis untuk merepresentasikan kebutuhan pemulihan dan perubahan kelelahan akibat aktivitas. Dalam implementasi sistem yang dikembangkan, sleep debt tidak digunakan sebagai komponen fitness ternormalisasi yang berdiri sendiri, melainkan digunakan sebagai dasar penyesuaian target kebutuhan tidur apabila informasi riwayat tidur tersedia. Evaluasi kandidat jadwal dilakukan melalui recovery reward, durasi tidur aktual, dynamic penalty, dan penalti regularitas waktu tidur antarhari.
+2.1.4 Sleep Regularity Index (SRI)
+Sleep Regularity Index (SRI) adalah metrik kuantitatif yang mengukur konsistensi pola tidur-bangun dari hari ke hari, yang diperkenalkan oleh Phillips et al.  SRI mengukur probabilitas bahwa seseorang berada pada status tidur yang sama — tidur atau terjaga — pada dua titik waktu yang dipisahkan 24 jam. Secara matematis, SRI didefinisikan pada Persamaan 2.1.
+[TABLE]
+SRI = −100 + (200 / T) × Σ δ(s(t), s(t + 24h)) | (2.1)
+[/TABLE]
+Keterangan:
+T : jumlah total pasangan titik waktu yang dibandingkan dalam rentang pengukuran
+s(t) : status tidur pada waktu t (bernilai 1 jika tidur, 0 jika terjaga)
+δ : fungsi Kronecker delta yang bernilai 1 apabila kedua status identik, 0 apabila berbeda
+Nilai SRI berkisar dari −100, yang menunjukkan pola tidur-bangun yang sepenuhnya terbalik setiap harinya, hingga 100, yang menunjukkan pola yang identik pada setiap hari pengukuran. Windred et al.  melaporkan dalam studi kohort UK Biobank bahwa SRI yang rendah berhubungan dengan risiko mortalitas yang lebih kuat dibandingkan durasi tidur yang tidak adekuat. Huang et al.  menemukan dalam studi MESA bahwa irregularitas tidur berhubungan dengan peningkatan risiko kejadian kardiovaskular mayor secara prospektif. Konsep SRI digunakan sebagai landasan teoritis untuk merancang penalti regularitas tidur. Implementasi sistem tidak menghitung nilai SRI penuh, tetapi mengevaluasi perubahan waktu mulai tidur utama antarhari.
+2.1.5 Optimasi Kombinatorial dan Penjadwalan
+Optimasi kombinatorial adalah cabang matematika terapan yang berkaitan dengan pencarian solusi optimal dari ruang keputusan diskret yang berhingga namun sangat besar . Masalah penjadwalan (scheduling) merupakan salah satu kelas masalah optimasi kombinatorial yang paling banyak dikaji, di mana sumber daya dialokasikan terhadap slot waktu diskret dengan memenuhi seperangkat kendala sambil mengoptimalkan satu atau beberapa fungsi tujuan . Kompleksitas komputasional sebagian besar varian masalah penjadwalan termasuk dalam kelas NP-hard dalam artian bahwa tidak diketahui algoritma deterministik yang mampu menyelesaikannya secara optimal dalam waktu polinomial untuk kasus umum .
+Dalam konteks penjadwalan tidur, setiap slot waktu dapat dikodekan sebagai variabel keputusan biner, sehingga masalah ini bersifat alami sebagai binary scheduling problem. Ruang solusi yang terbentuk bersifat eksponensial terhadap jumlah slot dan cakrawala perencanaan, sehingga pencarian secara exhaustive tidak layak secara komputasional. Kondisi ini menjadi justifikasi utama penggunaan algoritma metaheuristik yang mampu menjelajahi ruang solusi luas secara efisien tanpa menjamin optimalitas global, namun menghasilkan solusi berkualitas tinggi dalam waktu komputasi yang terbatas .
+Kendala dalam masalah penjadwalan umumnya dibedakan menjadi dua jenis . Kendala keras (hard constraints) adalah batasan yang tidak boleh dilanggar dan secara langsung menentukan kelayakan (feasibility) suatu solusi. Kendala lunak (soft constraints) adalah preferensi yang diupayakan dipenuhi semaksimal mungkin, dan pelanggarannya mengakibatkan penurunan nilai tujuan melalui fungsi penalti.
+[TABLE]
+ |  | (2.2)
+[/TABLE]
+Keterangan:
+= solusi optimal;
+= kandidat solusi;
+= ruang solusi;
+= fungsi objektif atau fungsi fitness.
+2.1.6 Genetic Algorithm (Algoritma Genetika)
+Genetic Algorithm (GA) adalah metode pencarian dan optimasi berbasis populasi yang terinspirasi dari mekanisme seleksi alam dan evolusi genetis, yang diperkenalkan oleh  dan dipopulerkan oleh Goldberg . GA beroperasi pada populasi solusi kandidat yang disebut individu atau kromosom, yang berevolusi melalui sejumlah iterasi (generasi) menggunakan tiga operator utama: seleksi, pindah silang (crossover), dan mutasi.
+Kromosom merepresentasikan satu solusi kandidat dalam ruang pencarian. Representasi kromosom merupakan keputusan desain kritis karena menentukan bagaimana ruang solusi dipetakan ke struktur data yang dapat dimanipulasi operator genetika . Representasi yang umum meliputi string biner, integer, real-valued, dan permutasi.
+[TABLE]
+ |  | (2.3)
+[/TABLE]
+Keterangan:
+= nilai kualitas individu;
+= representasi solusi kandidat;
+= fungsi evaluasi.
+Seleksi menentukan individu mana yang akan berkontribusi pada generasi berikutnya. Skema yang lazim digunakan antara lain seleksi roda roulette yang memberi probabilitas seleksi proporsional terhadap fitness, seleksi turnamen yang memilih individu terbaik dari subset populasi acak, dan elitisme yang menjamin individu terbaik selalu dipertahankan . Crossover mengkombinasikan materi genetik dari dua orang tua untuk menghasilkan keturunan baru, sedangkan mutasi menerapkan perubahan kecil secara acak pada kromosom dengan probabilitas rendah untuk mempertahankan keberagaman populasi .
+[TABLE]
+ |  | (2.4)
+[/TABLE]
+Keterangan :
+= probabilitas suatu gen mengalami mutasi;
+= mutation rate atau laju mutasi.
+Kelemahan utama GA adalah kerentanan terhadap konvergensi prematur, yaitu kondisi di mana keberagaman populasi berkurang terlalu cepat sehingga algoritma dapat terperangkap pada optima lokal . GA juga cenderung kurang efisien dalam fase eksploitasi lokal — meskipun unggul dalam eksplorasi ruang pencarian yang luas, GA kurang efektif dalam memperhalus detail solusi pada skala kecil yang memerlukan pencarian lokal yang presisi.
+Karakteristik tersebut menjadikan GA sesuai sebagai komponen eksplorasi global dalam penelitian ini, terutama karena ruang solusi penjadwalan tidur bersifat besar dan diskrit.
+2.1.7 Hill Climbing
+Hill Climbing (HC) adalah algoritma pencarian lokal yang bergerak secara iteratif dari solusi saat ini ke solusi tetangga (neighbor) yang memiliki nilai fitness lebih tinggi, dan berhenti ketika tidak ditemukan tetangga yang lebih baik . Berbeda dengan GA yang beroperasi pada populasi, HC beroperasi pada satu solusi tunggal dan merupakan strategi eksploitasi lokal yang efisien dari segi memori dan waktu komputasi per evaluasi.
+[TABLE]
+ |  | (2.5)
+[/TABLE]
+Keterangan :
+= fitness solusi saat ini;
+= fitness solusi tetangga.
+= solusi saat ini;
+= solusi tetangga;
+Terdapat beberapa varian HC. Steepest ascent hill climbing mengevaluasi seluruh tetangga dan memilih yang terbaik pada setiap langkah. First-choice hill climbing memilih tetangga pertama yang menunjukkan perbaikan untuk efisiensi komputasi. Random restart hill climbing menjalankan HC dari beberapa titik awal berbeda untuk mengurangi dampak optima lokal . Kelemahan utama HC adalah sifatnya yang greedy dan myopic: algoritma mudah terjebak pada optima lokal, dataran tinggi (plateau), dan punggung pegunungan (ridge) dalam lanskap fitness , sehingga lebih cocok digunakan sebagai komplemen algoritma berbasis populasi daripada sebagai pengganti.
+Oleh karena itu, Hill Climbing diposisikan sebagai mekanisme penyempurnaan lokal terhadap solusi yang sebelumnya telah dihasilkan oleh Genetic Algorithm.
+2.1.8 Genetic Algorithm dan Hill Climbing
+Genetic Algorithm dan Hill Climbing (MA) adalah kerangka optimasi hibrida yang menggabungkan eksplorasi global berbasis populasi dari Evolutionary Algorithm (EA) dengan eksploitasi lokal dari prosedur pencarian lokal seperti Hill Climbing atau Simulated Annealing . Istilah "memetik" diadopsi dari konsep meme Dawkins sebagai analogi unit informasi budaya yang beradaptasi, sebanding dengan gen dalam evolusi genetis. Sinergi antara GA sebagai penjelajah global dan HC sebagai penghalus lokal merupakan motivasi utama arsitektur ini.
+Neri dan Cotta  dalam survei komprehensif mereka melaporkan bahwa pada sebagian besar kelas masalah optimasi kombinatorial yang diuji, MA mampu menghasilkan solusi berkualitas tinggi dengan jumlah evaluasi fungsi fitness yang lebih efisien dibandingkan GA murni atau pencarian lokal yang berdiri sendiri. Performa relatif MA tetap bergantung pada kesesuaian antara prosedur pencarian lokal yang dipilih dengan struktur masalah .
+[TABLE]
+ |  | (2.6)
+[/TABLE]
+Keterangan :
+= populasi awal;
+= solusi terbaik yang dihasilkan Genetic Algorithm;
+= proses Hill Climbing;
+=solusi akhir hasil optimasi hibrida.
+Terdapat dua strategi integrasi utama dalam MA . Strategi Lamarckian mengganti kromosom asli dengan versi yang telah diperbaiki oleh pencarian lokal, sehingga perbaikan lokal langsung diwariskan ke generasi berikutnya dan memengaruhi komposisi genetis populasi. Strategi Baldwinian mengevaluasi fitness berdasarkan solusi yang diperbaiki tanpa mengubah kromosom asli, sehingga pencarian lokal memengaruhi seleksi tetapi tidak mengubah genotipe. Pemilihan antara kedua strategi ini berdampak pada kecepatan konvergensi dan keberagaman populasi.
+Kombinasi inilah yang menjadi dasar pemilihan Genetic Algorithm dan Hill Climbing sebagai metode utama dalam penelitian ini.
+2.1.9 Fungsi Fitness Multikriteria
+Fungsi fitness mengkuantifikasi kualitas setiap solusi kandidat sehingga dapat dibandingkan dan diseleksi dalam kerangka GA maupun MA. Dalam masalah optimasi multikriteria, di mana terdapat beberapa tujuan yang tidak selalu konvergen, perancangan fungsi fitness yang tepat menentukan arah evolusi populasi . Dua pendekatan utama adalah: (1) agregasi linier berbobot, yang menggabungkan beberapa objektif menjadi satu nilai skalar dengan bobot yang mencerminkan kepentingan relatif masing-masing; dan (2) optimasi berbasis dominansi Pareto, yang memelihara sejumlah solusi non-dominan sebagai aproksimasi front Pareto
+Dalam penelitian ini, fungsi fitness dirancang sebagai fungsi komposit yang menggabungkan reward pemulihan tidur, kontribusi durasi tidur aktual, dynamic penalty, dan penalti regularitas waktu tidur antarhari. Komponen reward meningkatkan nilai fitness, sedangkan komponen penalti bernilai negatif sehingga menurunkan nilai fitness apabila kandidat jadwal melanggar aturan kualitas yang ditetapkan. Formulasi fungsi fitness dinyatakan pada Persamaan 2.7
+[TABLE]
+ | (2.6)
+[/TABLE]
+Keterangan:
+: nilai fitness jadwal kandidat.
+: reward pemulihan berdasarkan simulasi tidur dan fatigue.
+: durasi tidur actual.
+: penalti aturan kualitas jadwal, bernilai non-positif.
+: penalti pergeseran waktu mulai tidur utama antarhari, bernilai non-positif.
+: bobot komponen tidur, sesuai implementasi program bernilai 0,65.
+Dengan formulasi tersebut, nilai fitness selalu dimaksimalkan selama proses optimasi. Definisi operasional setiap komponen fungsi fitness dan mekanisme perhitungannya diuraikan lebih lanjut pada Bab III.
+2.1.10 Penanganan Kendala (Constraint Handling)
+Penanganan kendala merupakan salah satu tantangan utama dalam penerapan GA pada masalah optimasi berkendalikan (constrained optimization problems, COP) . Tiga kelompok pendekatan yang lazim digunakan adalah: (1) pendekatan berbasis penalti yang menambahkan penalti pada fitness untuk setiap pelanggaran kendala, sehingga secara implisit mengarahkan pencarian menuju wilayah solusi layak; (2) pendekatan berbasis operator yang merancang crossover dan mutasi sedemikian rupa sehingga keturunan yang dihasilkan selalu layak; dan (3) mekanisme repair constraint yang memperbaiki solusi tidak layak menjadi layak sebelum evaluasi fitness dilakukan
+Mekanisme repair umumnya efektif apabila terdapat prosedur deterministik yang efisien untuk mengubah solusi tidak layak menjadi layak, dan sering menghasilkan konvergensi lebih cepat karena seluruh individu yang dievaluasi berada di dalam ruang solusi layak. Pendekatan berbasis penalti, di sisi lain, lebih fleksibel dan mudah diimplementasikan namun memerlukan kalibrasi koefisien penalti yang cermat . Detail mekanisme yang diterapkan pada sistem ini diuraikan pada Bab III.
+2.1.11 Baseline dalam Evaluasi Algoritma
+Dalam evaluasi algoritma optimasi, baseline digunakan sebagai metode pembanding untuk menilai apakah pendekatan yang diusulkan benar-benar memberikan peningkatan kinerja. Baseline tidak selalu dirancang untuk menghasilkan solusi terbaik, tetapi berfungsi sebagai titik acuan yang sederhana dan mudah dipahami dalam proses perbandingan.
+Pada penelitian ini digunakan dua baseline, yaitu greedy schedule dan fixed schedule. Greedy schedule merepresentasikan pendekatan heuristik sederhana yang memilih keputusan terbaik secara lokal berdasarkan slot tidur yang tersedia, tanpa mempertimbangkan dampak antarhari secara menyeluruh. Sementara itu, fixed schedule merepresentasikan pola tidur konstan yang sama setiap hari sebagai pembanding terhadap jadwal adaptif yang dihasilkan algoritma. Penggunaan kedua baseline tersebut memungkinkan evaluasi apakah Genetic Algorithm dan Hill Climbing mampu menghasilkan jadwal yang lebih baik dari pendekatan sederhana maupun pola tetap.
+2.1.12 Representasi Waktu dan Aktivitas
+Satu hari direpresentasikan sebagai 48 slot waktu diskret dengan durasi 30 menit per slot. Slot ke-0 merepresentasikan pukul 00.00–00.30, slot ke-1 merepresentasikan pukul 00.30–01.00, dan seterusnya hingga slot ke-47 yang merepresentasikan pukul 23.30–24.00. Dengan representasi ini, seluruh aktivitas harian dapat diproses secara diskret oleh algoritma optimasi tanpa memerlukan pembulatan atau interpolasi waktu.
+[TABLE]
+ |  | (2.7)
+[/TABLE]
+Keterangan:
+= indeks slot waktu;
+= jam dalam format 24 jam;
+= menit pada waktu tertentu.
+Gambar 2. 1 Representasi 48 Slot Harian
+Sumber: Diolah penulis
+Solusi jadwal harian direpresentasikan sebagai kromosom berbentuk daftar bilangan bulat sepanjang 48 elemen. Setiap elemen, yang disebut gen, menyatakan jenis aktivitas pada slot waktu yang bersangkutan. Kode aktivitas yang digunakan dalam sistem ditunjukkan pada Tabel 2.1.
+Tabel 2. 1 Kode Aktivitas pada Representasi Kromosom
+[TABLE]
+Kode | Aktivitas
+0 | Tidur (tidur utama)
+1 | Kerja
+2 | Nap (tidur siang)
+3 | Santai (waktu luang)
+4 | Kuliah
+[/TABLE]
+[TABLE]
+ |  | (2.8)
+[/TABLE]
+Keterangan:
+= kromosom jadwal harian;
+= gen pada slot ke-i;
+= indeks slot dari 0 sampai 47;
+= himpunan kode aktivitas.
+Gambar 2. 2 Representasi Kromosom Jadwal Harian
+Sumber: Diolah penulis
+Representasi kromosom dipilih karena kompatibel secara langsung dengan operator Genetic Algorithm (seleksi, crossover, mutasi) maupun dengan prosedur repair chromosome. Dengan representasi ini, setiap operator dapat diimplementasikan sebagai manipulasi sederhana pada daftar bilangan bulat, sementara kode aktivitas tetap bermakna secara semantis bagi sistem.
+2.1.13 Perancangan Fungsi Fitness
+Fungsi fitness digunakan untuk menilai kualitas setiap kromosom kandidat secara kuantitatif. Dalam penelitian ini, fungsi fitness dirancang sebagai fungsi komposit yang mempertimbangkan empat komponen utama, yaitu recovery reward, durasi tidur aktual (diberi koefisien 0,2 pada implementasi program), dynamic penalty, dan penalti regularitas tidur berbasis pergeseran waktu mulai tidur utama antarhari. Penalti regularitas tersebut terinspirasi oleh konsep Sleep Regularity Index, tetapi tidak merupakan perhitungan nilai SRI secara penuh. Nilai fitness selalu dimaksimalkan selama proses evolusi. Secara formal, fungsi fitness dinyatakan sebagai berikut:
+[TABLE]
+ | (2.8)
+[/TABLE]
+Keterangan:
+w_sleep adalah bobot komponen tidur, ditetapkan sebesar 0,65 pada implementasi sistem;
+recovery_reward adalah akumulasi nilai pemulihan dari tidur dan nap sepanjang hari, dihitung dengan mempertimbangkan bobot sirkadian;
+actual_duration adalah jumlah slot tidur utama (kode 0) pada kromosom yang diberi koefisien sebesar 0,2 pada implementasi program;
+dynamic_penalty adalah penalti kumulatif terhadap pelanggaran aturan kualitas tidur, bernilai negatif;
+regularity_penalty atau sri_penalty merupakan penalti bernilai negatif terhadap pergeseran waktu mulai tidur utama dibandingkan hari sebelumnya. Istilah sri_penalty digunakan sebagai nama komponen pada implementasi program, sedangkan secara metodologis komponen tersebut merupakan penalti regularitas tidur dan bukan nilai SRI penuh.
+Nilai dynamic_penalty dan sri_penalty bersifat negatif sehingga secara otomatis akan menurunkan nilai fitness apabila jadwal melanggar aturan yang ditetapkan sistem. Dengan formulasi ini, algoritma diarahkan untuk menghasilkan jadwal yang tidak hanya memiliki durasi tidur yang cukup, tetapi juga berkualitas dari sisi distribusi waktu, kelelahan kumulatif, dan konsistensi pola tidur antarhari.
+[Heading 3] 2.1.13.1 Durasi Tidur dan Target Tidur
+Durasi tidur dihitung dari jumlah gen bernilai 0 pada kromosom. Target tidur dasar dalam sistem adalah 14 slot atau setara dengan 7 jam. Pada implementasi saat ini, target harian dihitung dengan mempertimbangkan jumlah slot bebas yang tersedia agar durasi tidur yang diharapkan tetap sesuai dengan kepadatan jadwal pada hari tersebut.
+[TABLE]
+ | (2.9)
+[/TABLE]
+Keterangan:
+= target slot tidur harian;
+= target dasar tidur 7 jam;
+= tambahan slot tidur akibat sleep debt;
+= jumlah slot bebas harian.
+Apabila durasi tidur aktual di bawah ambang minimum 12 slot (setara 6 jam) pada kondisi normal, sistem memberikan penalti kuadratik yang proporsional terhadap kekurangan tersebut. Begitu pula apabila durasi tidur melebihi 18 slot (setara 9 jam), sistem memberikan penalti serupa. Pendekatan penalti kuadratik dipilih agar deviasi yang besar dari target mendapatkan penalti yang jauh lebih besar dibandingkan deviasi kecil, sehingga algoritma lebih termotivasi untuk mendekati rentang target yang wajar.
+[TABLE]
+ | (2.10)
+[/TABLE]
+Keterangan:
+= jumlah slot tidur aktual;
+= fungsi indikator yang bernilai 1 apabila gen ke-iii merupakan tidur utama;
+= 0				= gen yang merepresentasikan aktivitas tidur utama.
+[TABLE]
+ | (2.11)
+[/TABLE]
+Keterangan:
+= durasi tidur dalam satuan jam;
+= durasi tidur dalam satuan slot;
+2 = jumlah slot dalam satu jam.
+[Heading 3] 2.1.13.2 Recovery Reward dan Simulasi Fatigue
+Recovery reward dihitung melalui simulasi aktivitas pada setiap slot secara berurutan. Sistem menyimpan nilai kelelahan saat ini (current_fatigue) yang berubah mengikuti aktivitas pada setiap slot. Aktivitas kerja meningkatkan kelelahan sebesar 0,08 per slot, aktivitas kuliah sebesar 0,05 per slot, dan aktivitas santai sebesar 0,03 per slot. Nilai kelelahan tidak dapat turun di bawah nol.
+[TABLE]
+ | 
+[/TABLE]
+Keterangan:
+= tingkat kelelahan sebelum slot diproses;
+= tingkat kelelahan setelah slot diproses;
+= aktivitas kerja;
+= aktivitas kuliah;
+= aktivitas santai;
+= kenaikan fatigue akibat kerja per slot;
+0,05		= kenaikan fatigue akibat kuliah per slot;
+0,03		= kenaikan fatigue akibat aktivitas santai per slot.
+Setiap slot tidur utama (kode 0) memberikan pemulihan dengan cara mengalikan kelelahan saat ini dengan faktor pemulihan 0,15 yang dimodulasi oleh circadian weight (cw). Circadian weight bernilai 1,2 pada slot dini hari hingga pagi (slot 0–12 dan slot 44–47), bernilai 0,85 pada slot siang hari (slot 24–32), dan bernilai 0,65 pada slot-slot lainnya. Dengan demikian, tidur pada waktu malam hingga dini hari secara biologis memberikan pemulihan yang lebih efisien dibandingkan tidur di siang hari.
+[TABLE]
+ | (2.13)
+[/TABLE]
+Keterangan:
+= bobot sirkadian pada slot ke-i;
+= indeks slot waktu;
+1,2 = bobot pemulihan pada waktu malam hingga dini hari;
+0,85 = bobot pemulihan pada waktu siang;
+0,65 = bobot pemulihan pada slot lainnya.
+Nap yang ditempatkan dengan jarak cukup dari tidur utama (lebih dari 8 slot) memberikan pengurangan kelelahan sebesar 0,35 dan recovery_reward tambahan sebesar 0,25 yang juga dimodulasi oleh circadian weight. Nap yang ditempatkan terlalu dekat dengan akhir blok tidur utama akan dikenai penalti sebesar bobot NAP_EARLY (150,0) karena dianggap tidak memberikan manfaat pemulihan yang efektif. Nilai kelelahan pada akhir hari (fatigue_end) diteruskan sebagai initial_fatigue untuk hari berikutnya dalam optimasi mingguan.
+[TABLE]
+ | (2.14)
+[/TABLE]
+Keterangan:
+= fatigue sebelum nap;
+= fatigue setelah nap;
+= nilai pengurangan fatigue akibat nap.
+[TABLE]
+ | (2.15)
+[/TABLE]
+Keterangan:
+= akumulasi reward pemulihan;
+0,25 			= reward dasar dari nap;
+= bobot sirkadian pada slot ke-iii.
+[TABLE]
+ | (2.16)
+[/TABLE]
+Keterangan:
+= nilai pemulihan dari tidur utama;
+= fatigue sebelum tidur utama;
+0,15			= faktor pemulihan tidur utama;
+= bobot sirkadian pada slot ke-i.
+[Heading 3] 2.1.13.3 Dynamic Penalty
+Dynamic penalty merupakan akumulasi penalti yang diberikan terhadap pola tidur yang tidak sesuai dengan aturan biologis dan fungsional sistem. Setiap komponen penalti memiliki bobot yang berbeda sesuai kepentingannya. Tabel 3.2 merangkum komponen penalti yang digunakan beserta bobotnya.
+Tabel 3. 2 Komponen Dynamic Penalty pada Fungsi Fitness
+[TABLE]
+Komponen Penalti | Bobot | Kondisi Pelanggaran
+Jumlah blok tidur (BLOK) | 300,0 | Lebih dari 3 blok tidur per hari (4 pada survival mode)
+Durasi tidur (DURASI) | 200,0 | Di bawah 12 slot, di atas 18 slot, atau di bawah target
+Nap terlalu dekat tidur utama (NAP_EARLY) | 150,0 | Nap ditempatkan kurang dari 8 slot dari akhir tidur utama
+Nap berlebihan (NAP_OVR) | 150,0 | Lebih dari 3 slot nap total atau lebih dari 1 sesi nap
+[/TABLE]
+[TABLE]
+ | (2.17)
+[/TABLE]
+Keterangan:
+: total penalti dinamis;
+: penalti akibat durasi tidur kurang;
+: penalti akibat durasi tidur berlebih;
+: penalti akibat jumlah blok tidur berlebih;
+: penalti akibat nap berlebihan;
+: penalti akibat nap terlalu dekat dengan tidur utama.
+Setiap komponen penalti dihitung secara kuadratik terhadap besarnya pelanggaran, sehingga pelanggaran yang lebih besar mendapatkan penalti yang tidak linier lebih tinggi. Mekanisme ini mendorong algoritma untuk menghindari pelanggaran besar secara prioritas.
+Pada kondisi survival mode, yaitu ketika blok bebas terpanjang kurang dari 12 slot, beberapa batasan dilonggarkan. Batas maksimum blok tidur dinaikkan menjadi 4, dan apabila tidak terdapat nap sama sekali pada hari tersebut, sistem memberikan penalti tambahan sebagai dorongan agar setidaknya ada slot nap yang disisipkan untuk kompensasi tidur yang sangat terbatas.
+[Heading 3] 2.1.13.4 Penalti Regularitas Tidur (SRI Penalty)
+Penalti regularitas tidur (sri_penalty) dihitung berdasarkan perbandingan antara waktu mulai tidur utama pada hari yang dioptimasi dengan anchor_start, yaitu waktu mulai tidur utama hari sebelumnya. Tidur utama didefinisikan sebagai blok tidur terpanjang dalam kromosom. Apabila waktu mulai tidur utama bergeser lebih dari 4 slot (setara 2 jam) dari anchor_start, maka sistem memberikan penalti yang dihitung sebagai berikut.
+[TABLE]
+ | (2.18)
+[/TABLE]
+Keterangan:
+: selisih waktu mulai tidur utama antarhari;
+: slot mulai tidur utama pada hari ke-t;
+: slot mulai tidur utama pada hari sebelumnya;
+48		:  total slot dalam satu siklus harian.
+di mana diff adalah selisih minimum antara waktu mulai tidur utama dan anchor_start, dihitung secara melingkar pada siklus 48 slot hari. Nilai penalti dibatasi maksimum 400 untuk menghindari dominasi komponen ini terhadap seluruh nilai fitness. Penalti tidak diterapkan apabila anchor_start tidak tersedia (hari pertama optimasi) atau apabila area sekitar anchor_start didominasi oleh slot mandatory absolute yang menghalangi penempatan tidur di posisi tersebut.
+[TABLE]
+ | (2.19)
+[/TABLE]
+Keterangan :
+: penalti regularitas tidur;
+: bobot penalti SRI;
+: selisih waktu mulai tidur utama antarhari;
+4			: toleransi pergeseran 4 slot atau setara 2 jam;
+400 			: batas maksimum penalti SRI.
+Mekanisme ini mengoperasionalkan aspek regularitas tidur melalui penalti terhadap pergeseran waktu mulai tidur utama antarhari. Dengan cara tersebut, algoritma diarahkan untuk menjaga konsistensi jadwal tidur tanpa menghitung Sleep Regularity Index secara penuh pada setiap proses evaluasi kromosom. Oleh karena itu, konsep SRI dalam penelitian ini berperan sebagai landasan teoretis, sedangkan ukuran operasional yang digunakan oleh sistem adalah besar pergeseran waktu mulai tidur utama dibandingkan hari sebelumnya.
+2.1.14 Penanganan Kendala dengan Repair Chromosome
+Repair chromosome adalah mekanisme perbaikan kromosom yang digunakan untuk menjamin agar setiap individu selalu memenuhi seluruh kendala keras sebelum dievaluasi oleh fungsi fitness. Proses repair dijalankan pada setiap individu hasil inisialisasi populasi awal, hasil crossover, hasil mutasi, dan setiap kandidat tetangga yang dibangkitkan oleh Hill Climbing.
+Tahapan repair chromosome dilaksanakan secara berurutan dalam urutan yang tetap. Urutan ini penting karena setiap tahap bergantung pada hasil tahap sebelumnya. Keenam tahapan tersebut adalah sebagai berikut.
+[Heading 3] 2.1.14.1 Enforce Mandatory Slots
+Tahap pertama memastikan bahwa seluruh slot wajib berada pada kode aktivitas yang benar. Slot kerja ditetapkan dengan kode 1, slot kuliah dengan kode 4, dan slot transit dengan kode 3. Tahap ini dijalankan pertama kali karena seluruh tahap berikutnya harus bertolak dari kondisi slot wajib yang sudah benar.
+[Heading 3] 2.1.14.2 Remove Micro Sleeps
+Tahap kedua menghapus blok tidur yang terlalu pendek. Blok tidur dengan panjang kurang dari 3 slot (kurang dari 90 menit) dianggap sebagai micro sleep yang tidak memberikan manfaat pemulihan signifikan dan diubah menjadi aktivitas santai. Pengecualian diberikan apabila blok tidur pendek tersebut berada di awal hari dan merupakan kelanjutan dari tidur hari sebelumnya (berdasarkan tail_memory), atau berada di akhir hari yang berpotensi berlanjut ke hari berikutnya.
+[Heading 3] 2.1.14.3 Sanitize Transitions
+Tahap ketiga memperbaiki transisi antara tidur utama dan nap. Apabila terdapat slot nap (kode 2) yang bersebelahan langsung dengan blok tidur utama (kode 0), maka slot nap tersebut diubah menjadi tidur utama. Selain itu, apabila tail_memory menunjukkan bahwa hari sebelumnya berakhir dengan tidur dan slot pertama hari ini adalah nap, maka slot nap di awal hari diubah menjadi tidur utama untuk menjaga kontinuitas representasi tidur yang melewati tengah malam.
+[Heading 3] 2.1.14.4 Enforce Sleep Target
+Tahap keempat berupaya memenuhi target tidur dengan cara memperluas blok tidur yang sudah ada ke slot santai yang berdekatan. Target tidur dihitung berdasarkan target dasar dan disesuaikan dengan jumlah slot bebas yang tersedia pada hari tersebut. Apabila kromosom belum memiliki slot tidur sama sekali, sistem terlebih dahulu menyisipkan satu slot tidur pada posisi pertama yang tersedia sebelum melakukan ekspansi. Ekspansi dilakukan secara iteratif hingga target tercapai atau tidak ada lagi slot yang dapat diperluas.
+[Heading 3] 2.1.14.5 Bridge Gaps
+Tahap kelima menyambungkan fragmen tidur yang dipisahkan oleh celah kecil berupa slot santai. Apabila terdapat blok tidur yang diikuti oleh slot santai, dan kemudian diikuti oleh blok tidur lain dengan jarak tidak lebih dari 6 slot, maka slot santai di antara keduanya diubah menjadi tidur utama. Mekanisme yang serupa diterapkan untuk nap dengan batas celah yang lebih ketat, yaitu tidak lebih dari 2 slot. Tahap ini mengurangi fragmentasi tidur yang tidak perlu dalam kromosom.
+[Heading 3] 2.1.14.6 Limit Nap Duration
+Tahap keenam membatasi durasi nap agar tidak melebihi 3 slot berturut-turut (setara 90 menit). Apabila ditemukan blok nap yang lebih panjang dari batas tersebut, slot-slot nap yang melebihi batas diubah menjadi aktivitas santai. Pembatasan ini mencegah sistem menghasilkan nap yang terlalu panjang yang secara biologis kontraproduktif terhadap kualitas tidur malam.
+Gambar 3. 3 Alur Repair Chromosome
+Sumber: Diolah penulis
+2.1.15 Spesifikasi Parameter Algoritma
+Dalam implementasi Genetic Algorithm dan Hill Climbing pada sistem ini, sejumlah parameter operasional ditetapkan sebagai konfigurasi dasar untuk memastikan proses eksplorasi dan eksploitasi berjalan secara seimbang. Spesifikasi parameter ini ditetapkan berdasarkan karakteristik ruang pencarian jadwal harian serta hasil dari tahap kalibrasi, yang meliputi:
+Ukuran Populasi (Population Size)
+Ditetapkan sebanyak 50 individu pada setiap generasi. Angka ini dipilih berdasarkan hasil kalibrasi untuk menjaga keberagaman kandidat jadwal tanpa membebani komputasi secara berlebihan.
+Laju Mutasi (Mutation Rate)
+Ditetapkan sebesar 0,10 (10%). Mutasi hanya diterapkan pada gen (slot) yang berada di luar slot mandatory absolute.
+Distribusi Peluang Mutasi
+Untuk menjaga agar algoritma tidak terlalu agresif dalam menambahkan waktu tidur secara acak, gen yang termutasi akan diganti berdasarkan distribusi probabilitas spesifik: 5% untuk tidur utama (kode 0), 10% untuk nap (kode 2), dan 85% untuk aktivitas santai (kode 3).
+Seleksi dan Elitisme
+Sistem menggunakan mekanisme elitisme di mana 20 individu terbaik (teratas) langsung dipertahankan ke generasi berikutnya tanpa perubahan. Sementara itu, pemilihan induk (parent) untuk disilangkan (crossover) diambil secara acak dari 50 individu terbaik di dalam populasi.
+Titik Potong Crossover
+Menggunakan metode single-point crossover. Titik potong dipilih secara acak pada rentang slot ke-10 hingga ke-37 untuk menghindari terbentuknya keturunan (offspring) yang hampir identik dengan salah satu induknya.
+Iterasi Hill Climbing
+Proses eksploitasi lokal dibatasi maksimum sebanyak 20 iterasi untuk menyempurnakan solusi terbaik hasil evolusi Genetic Algorithm. Proses akan otomatis berhenti jika optima lokal telah tercapai sebelum batas iterasi tersebut.
+Jumlah Generasi
+Pada skenario optimasi jadwal mingguan, pencarian global menggunakan Genetic Algorithm dijalankan sebanyak 200 generasi sebelum solusi terbaiknya diteruskan ke tahap Hill Climbing.
+[Heading 2] 2.2 Tinjauan Sumber Pustaka
+Subbab ini menyajikan tinjauan terhadap penelitian-penelitian terdahulu yang relevan dengan topik penelitian ini, meliputi studi di bidang ilmu tidur komputasional, algoritma metaheuristik untuk penjadwalan, dan aplikasi optimasi pada domain kesehatan. Tinjauan disusun untuk mengidentifikasi landasan empiris, metode yang telah diuji, dan kesenjangan yang masih ada. Tabel 2.1 merangkum penelitian-penelitian tersebut beserta metode, kontribusi, dan keterbatasannya.
+Tabel 2. 1 State of The Art
+[TABLE]
+No. | Penelitian | Metode | Hasil Penelitian | Keterbatasan
+1 |  | Pemodelan matematis two-process model; simulasi respons EEG gelombang lambat | Membangun kerangka teoritis regulasi tidur homeostatis-sirkadian yang menjadi fondasi pemodelan komputasional tidur; menjelaskan mekanisme akumulasi dan peluruhan tekanan tidur | Bersifat teoritis-fisiologis; tidak ada komponen optimasi penjadwalan otomatis
+2 | Studi eksperimental dosis-respons; Psychomotor Vigilance Task (PVT); desain within-subject terkontrol | Mengkuantifikasi dampak kumulatif restriksi tidur kronik pada kinerja kognitif; membuktikan adaptasi perseptual yang mengaburkan defisit subjektif; menjadi acuan standar pemodelan sleep debt | Dilakukan di lingkungan laboratorium terkontrol; tidak mempertimbangkan variabilitas jadwal multi-hari atau faktor regularitas antarhari
+3 | Survei kronobiologi berskala besar; Munich Chronotype Questionnaire (MCTQ); analisis korelasional | Memperkenalkan dan mengoperasionalisasikan konsep social jetlag; menghubungkan ketidakselarasan sirkadian-sosial dengan konsumsi stimulan dan penurunan kualitas tidur subjektif | Bersifat observasional cross-sectional; tidak ada sistem penjadwalan atau intervensi otomatis; kausalitas belum ditetapkan
+4 | Pemodelan matematis SRI; analisis kohort akselerometri mahasiswa; korelasi dengan performa akademik | Memperkenalkan SRI sebagai metrik kuantitatif regularitas tidur; menunjukkan korelasi antara konsistensi pola tidur-bangun dengan performa akademik dan keterlambatan fase sirkadian | Bersifat deskriptif-analitik; SRI tidak diintegrasikan ke dalam sistem optimasi atau penjadwalan otomatis manapun
+5 | Survei kronobiologi multi-negara; analisis korelasi social jetlag dengan indeks massa tubuh | Mengkuantifikasi hubungan antara social jetlag dan kelebihan berat badan; memperluas basis epidemiologis konsep social jetlag ke domain metabolik | Tidak ada komponen penjadwalan otomatis; tidak mempertimbangkan strategi mitigasi berbasis optimasi
+6 | Genetic Algorithm dengan representasi integer; penanganan kendala berbasis penalti; nurse scheduling problem | Membuktikan efektivitas GA pada masalah penjadwalan berkendalikan kompleks di domain kesehatan; GA mampu melampaui heuristik manual dalam kualitas solusi pada kasus rumah sakit nyata | Domain perawat, bukan tidur personal; tidak mempertimbangkan faktor biologis seperti sleep debt atau ritme sirkadian
+7 | Analisis kohort MESA (Multi-Ethnic Study of Atherosclerosis); aktigrafi multi-malam; pemodelan risiko prospektif | Menghubungkan iregularitas tidur-bangun secara prospektif dengan peningkatan risiko kejadian kardiovaskular mayor, independen dari durasi tidur, dalam kohort multi-etnik skala besar | Bersifat epidemiologis; tidak ada sistem optimasi; iregularitas diukur secara observasional, bukan diintervensi
+8 | Survei sistematik Genetic Algorithm dan Hill Climbing; benchmarking komparatif GA vs MA pada berbagai kelas masalah NP-hard | Menunjukkan bahwa pada sebagian besar kelas masalah yang diuji, MA menghasilkan solusi lebih kompetitif dibandingkan GA murni dengan evaluasi yang lebih efisien; mengklasifikasikan strategi integrasi Lamarckian dan Baldwinian | Survei umum; tidak diaplikasikan secara spesifik pada domain kesehatan atau penjadwalan tidur
+9 | Analisis kohort longitudinal UK Biobank; akselerometri; pemodelan risiko mortalitas dengan pengendalian perancu | Melaporkan bahwa SRI rendah berhubungan dengan risiko mortalitas lebih kuat dibandingkan durasi tidur yang tidak adekuat; mendorong pergeseran perhatian klinis dari durasi ke regularitas tidur | Bersifat observasional; tidak ada intervensi atau sistem optimasi; mekanisme kausal belum sepenuhnya ditetapkan
+10 | Tinjauan sistematis dan meta-analisis; shift work dan gangguan ritme sirkadian; analisis risiko kardiovaskular dan metabolik | Mengkompilasi bukti epidemiologis dampak pola kerja tidak teratur terhadap kesehatan; mendukung perlunya intervensi berbasis regularitas jadwal pada populasi pekerja dengan pola tidak teratur | Bersifat review; tidak mengajukan sistem penjadwalan otomatis; rekomendasi bersifat naratif dan umum
+11 |  | Review dan evaluasi aplikasi smartphone untuk sleep self-management | Menunjukkan bahwa aplikasi tidur digital telah banyak digunakan untuk mendukung pemantauan dan pengelolaan tidur mandiri | Tidak membahas optimasi jadwal tidur berbasis metaheuristik, tidak menerapkan penalti regularitas yang terinspirasi konsep SRI sebagai tujuan optimasi, dan tidak memodelkan kendala aktivitas harian secara kombinatorial
+[/TABLE]
+Sumber: Diolah dari berbagai pustaka, 2026
+[Heading 2] 2.3 Gap Penelitian dan Posisi Penelitian
+Berdasarkan landasan teori pada Subbab 2.1 dan tinjauan sumber pustaka pada Subbab 2.2, terdapat tiga kesenjangan penelitian (research gap) yang dapat diidentifikasi.
+Pertama, berbagai penelitian telah menunjukkan pentingnya regularitas tidur terhadap kualitas fungsi harian dan kondisi kesehatan. Namun, penerapan aspek regularitas tidur sebagai pertimbangan operasional dalam sistem optimasi jadwal tidur otomatis masih relatif terbatas. Penelitian ini menggunakan konsep regularitas tidur tersebut sebagai dasar perancangan penalti terhadap perubahan waktu mulai tidur utama antarhari, tanpa mengklaim melakukan perhitungan nilai SRI klinis secara penuh.
+Kedua, penelitian di bidang optimasi penjadwalan berkendalikan, seperti nurse scheduling dengan GA yang dilakukan oleh Aickelin dan Dowsland , telah menunjukkan potensi pendekatan metaheuristik pada masalah-masalah sejenis di domain kesehatan. Namun penerapan pendekatan ini pada domain penjadwalan tidur personal dengan kendala biologis yang relevan secara klinis — mencakup sleep debt, fatigue index, dan regularitas sirkadian — masih relatif terbatas dalam literatur yang tersedia.
+Ketiga, berbagai aplikasi digital untuk manajemen tidur umumnya berfokus pada pemantauan, edukasi, atau dukungan pengelolaan tidur secara mandiri, tetapi belum secara khusus diarahkan sebagai sistem optimasi jadwal tidur personal berbasis metaheuristik yang mempertimbangkan kendala dan preferensi individual secara kombinatorial (Choi et al. 2018). Sistem-sistem ini belum memanfaatkan pendekatan metaheuristik yang mampu menjelajahi ruang solusi luas tanpa memerlukan asumsi konveksitas atau diferensiabilitas fungsi tujuan.
+Penelitian ini mengusulkan optimasi jadwal tidur mingguan dengan penalti regularitas berbasis pergeseran waktu tidur utama antarhari. Pendekatan tersebut terinspirasi oleh pentingnya regularitas tidur yang dijelaskan dalam literatur SRI, namun tidak dimaksudkan sebagai perhitungan nilai SRI klinis penuh.
+[Heading 1] BAB III
+[Heading 1] METODOLOGI PENELITIAN
+[Heading 2] Jenis dan Rancangan Penelitian
+Penelitian ini merupakan penelitian implementatif dengan pendekatan eksperimen komputasional. Disebut implementatif karena tujuan utama penelitian adalah merancang, membangun, dan menguji sistem optimasi jadwal tidur berbasis algoritma pada program yang dapat dijalankan; bukan menghasilkan teori baru maupun melakukan survei terhadap fenomena empiris. Pendekatan eksperimen komputasional digunakan karena evaluasi dilakukan melalui serangkaian percobaan terprogram terhadap dataset aktivitas subjek, mencakup kalibrasi parameter, optimasi jadwal, dan perbandingan hasil terhadap metode baseline.
+Metode utama yang diterapkan adalah Genetic Algorithm dan Hill Climbing, yaitu algoritma hibrida yang menggabungkan Genetic Algorithm (GA) sebagai mekanisme eksplorasi global dengan Hill Climbing (HC) sebagai mekanisme eksploitasi lokal. GA bertugas menjelajahi ruang solusi yang luas melalui mekanisme evolusi berbasis populasi, sedangkan HC memperhalus solusi terbaik hasil evolusi melalui pencarian lokal yang presisi. Dalam implementasi sistem ini, kedua metode digabungkan secara sekuensial. Genetic Algorithm terlebih dahulu digunakan untuk menjelajahi ruang solusi dan menghasilkan kandidat jadwal terbaik, kemudian Hill Climbing diterapkan pada solusi terbaik tersebut untuk melakukan penyempurnaan lokal.
+Objek penelitian berupa jadwal tidur dan aktivitas harian subjek dalam horizon tujuh hari. Jadwal direpresentasikan sebagai kromosom diskret sepanjang 48 gen, di mana setiap gen merepresentasikan satu slot waktu berdurasi 30 menit. Aktivitas yang dimodelkan meliputi tidur utama, kerja, nap, santai, dan kuliah. Sistem menghasilkan rekomendasi jadwal yang mempertimbangkan aktivitas wajib, target durasi tidur, perubahan fatigue akibat aktivitas, manfaat pemulihan tidur, serta regularitas waktu mulai tidur antarhari.
+Secara keseluruhan, tahapan penelitian meliputi penyediaan dataset aktivitas subjek dalam format CSV, pra-pemrosesan data dan pembentukan representasi slot wajib, perancangan fungsi fitness komposit, implementasi mekanisme repair chromosome, implementasi Genetic Algorithm dan Hill Climbing yang menggabungkan Genetic Algorithm dan Hill Climbing, optimasi mingguan dengan mekanisme carry-over antarhari, kalibrasi parameter melalui grid search pada dataset kalibrasi, serta evaluasi melalui baseline comparison dan pengujian multi-subjek pada dataset pengujian.
+[Heading 2] Data Penelitian
+Data penelitian diperoleh melalui kuesioner terhadap sejumlah responden yang memenuhi kriteria penelitian. Kuesioner mengumpulkan informasi aktivitas wajib harian serta kebutuhan istirahat subjek. Jawaban responden kemudian dikonversi menjadi indeks slot waktu dalam format CSV, dengan satu slot merepresentasikan interval 30 menit.
+Data yang digunakan dalam penelitian ini berupa dataset aktivitas subjek dalam format CSV. Setiap baris pada dataset merepresentasikan satu subjek, dan setiap pasang kolom merepresentasikan aktivitas subjek pada hari tertentu dalam seminggu. Kolom-kolom utama yang digunakan adalah sebagai berikut.
+Nama, yaitu identitas subjek yang digunakan untuk penelusuran data.
+Kerja_Senin hingga Kerja_Minggu, yaitu daftar indeks slot waktu aktivitas kerja pada masing-masing hari.
+Kuliah_Senin hingga Kuliah_Minggu, yaitu daftar indeks slot waktu aktivitas kuliah pada masing-masing hari.
+Dataset dalam penelitian ini dipisahkan menjadi dataset kalibrasi dan dataset pengujian. Dataset kalibrasi terdiri atas 5 subjek dan digunakan khusus untuk memilih parameter algoritma melalui prosedur grid search. Dataset pengujian terdiri atas 59 subjek dan digunakan untuk menjalankan optimasi jadwal mingguan, baseline comparison, dan evaluasi multi-subjek setelah parameter terbaik diperoleh. Pemisahan kedua dataset ini dilakukan agar data pengujian tidak terlibat dalam proses pemilihan parameter, sehingga evaluasi kinerja algoritma dapat dilakukan secara lebih objektif.
+Gambar 3. 4 Alur Metodologi Penelitian
+Sumber: Diolah penulis
+[Heading 2] Alur Penelitian
+Penelitian ini dilaksanakan melalui serangkaian tahapan yang tersusun secara sistematis, dimulai dari pengumpulan data hingga evaluasi hasil optimasi. Setiap tahapan dirancang agar proses penelitian dapat berjalan secara terstruktur serta menghasilkan sistem optimasi jadwal tidur dan aktivitas yang sesuai dengan tujuan penelitian. Alur penelitian yang digunakan ditunjukkan pada Gambar 3.1.
+Tahap pertama adalah pengumpulan data penelitian. Pada tahap ini dilakukan pengumpulan data aktivitas harian pengguna melalui formulir isian yang kemudian dikonversi ke dalam berkas berformat CSV. Data tersebut memuat informasi mengenai jadwal aktivitas wajib, seperti jam kerja dan jam kuliah, serta preferensi pengguna yang meliputi target durasi tidur, waktu aktivitas, dan batasan-batasan lain yang diperlukan selama proses optimasi. Data yang telah dikumpulkan menjadi masukan utama bagi sistem.
+Tahap kedua adalah pra-pemrosesan data (pre-processing). Sistem melakukan pembacaan terhadap data CSV untuk memastikan seluruh informasi memiliki format yang sesuai. Selanjutnya seluruh aktivitas dikonversi ke dalam representasi waktu diskret sebanyak 48 slot per hari dengan interval 30 menit setiap slot. Pada tahap ini juga dilakukan identifikasi terhadap aktivitas yang bersifat wajib (mandatory), pembentukan slot transisi antaraktivitas, serta pemeriksaan kelayakan data (feasibility check). Apabila ditemukan konflik jadwal atau data yang tidak memenuhi ketentuan sistem, proses optimasi tidak dilanjutkan hingga data diperbaiki.
+Setelah data dinyatakan valid, sistem memasuki tahap eksekusi Genetic Algorithm dan Hill Climbing sebagai inti proses optimasi. Algoritma dimulai dengan membangkitkan populasi awal berupa sekumpulan kandidat jadwal tidur yang memenuhi seluruh batasan aktivitas wajib. Setiap kandidat kemudian dievaluasi menggunakan fungsi fitness untuk mengukur kualitas jadwal berdasarkan beberapa aspek, yaitu kualitas pemulihan tidur, durasi tidur aktual, tingkat kelelahan, serta konsistensi waktu mulai tidur antarhari. Selanjutnya dilakukan proses evolusi menggunakan operator Genetic Algorithm yang meliputi seleksi, crossover, dan mutasi. Hasil evolusi kemudian disempurnakan menggunakan Hill Climbing sebagai proses pencarian lokal sehingga diperoleh solusi dengan kualitas yang lebih baik.
+Tahap berikutnya adalah optimasi jadwal tidur mingguan. Optimasi dilakukan secara berurutan selama tujuh hari. Hasil optimasi pada suatu hari tidak berdiri sendiri, tetapi digunakan sebagai kondisi awal pada hari berikutnya. Informasi seperti tingkat kelelahan akhir dan waktu mulai tidur utama diteruskan (carry-over) sehingga sistem mampu menghasilkan jadwal yang lebih konsisten sepanjang minggu.
+Setelah mekanisme optimasi selesai, dilakukan kalibrasi parameter algoritma menggunakan metode Grid Search. Pada tahap ini beberapa kombinasi parameter, seperti ukuran populasi, laju mutasi, jumlah generasi, jumlah elitisme, dan iterasi Hill Climbing diuji secara sistematis. Setiap kombinasi dievaluasi menggunakan data yang sama sehingga diperoleh konfigurasi parameter yang menghasilkan nilai fitness terbaik.
+Parameter terbaik yang diperoleh kemudian digunakan pada tahap Baseline Comparison. Pada tahap ini performa Genetic Algorithm dan Hill Climbing dibandingkan dengan dua metode pembanding, yaitu Greedy Schedule dan Fixed Schedule. Ketiga metode dijalankan menggunakan data masukan yang identik sehingga hasil yang diperoleh dapat dibandingkan secara objektif.
+Selanjutnya dilakukan evaluasi sistem melalui tiga skenario pengujian, yaitu pengujian optimasi mingguan (Weekly Optimization), pengujian perbandingan dengan metode baseline (Baseline Comparison), dan pengujian terhadap beberapa subjek dengan karakteristik aktivitas yang berbeda (Multi-Subject Test). Hasil setiap pengujian dianalisis berdasarkan nilai fitness, durasi tidur yang diperoleh, tingkat kelelahan akhir, serta konsistensi pola tidur yang dihasilkan.
+Tahap terakhir adalah implementasi dan penyajian hasil. Seluruh algoritma diimplementasikan menggunakan bahasa pemrograman Python dengan antarmuka berbasis web (React dan Streamlit). Sistem menghasilkan jadwal tidur yang telah dioptimalkan beserta laporan evaluasi yang memuat nilai fitness, statistik tidur, serta visualisasi jadwal harian dan mingguan. Seluruh hasil tersebut kemudian dianalisis untuk menjawab tujuan penelitian dan menarik kesimpulan mengenai kinerja Genetic Algorithm dan Hill Climbing dalam mengoptimalkan jadwal tidur pada pekerja dengan pola aktivitas yang tidak teratur.
+[Heading 2] Pra-Pemrosesan Data
+Pra-pemrosesan data dilakukan sebelum proses optimasi agar data aktivitas dari file CSV dapat dikonversi menjadi struktur data yang siap digunakan oleh algoritma. Tahapan ini meliputi parsing slot aktivitas, pembentukan mandatory core, pembentukan transit slot, pembentukan mandatory absolute, dan feasibility check.
+Gambar 3. 5 Mandatory Core, Transit Slot, dan Mandatory Absolute
+Sumber: Diolah penulis
+[Heading 3] 3.4.1 Parsing Slot Aktivitas
+Parsing slot dilakukan untuk mengubah nilai pada kolom Kerja dan Kuliah di file CSV menjadi dua daftar bilangan bulat, yaitu kerja_slots dan kuliah_slots. Setiap daftar hanya dinyatakan valid apabila seluruh elemennya berupa bilangan bulat pada rentang 0 hingga 47. Jika isi kolom tidak dapat diparse atau mengandung nilai di luar rentang tersebut, parser mengembalikan daftar kosong agar data tidak diproses sebagai slot aktivitas yang salah.
+[Heading 3] 3.4.2 Pembentukan Mandatory Core
+Mandatory core merupakan gabungan dari kerja_slots dan kuliah_slots. Slot yang termasuk mandatory core diperlakukan sebagai aktivitas wajib yang tidak boleh diubah oleh proses optimasi. Dalam inisialisasi kromosom, slot kerja ditetapkan dengan kode aktivitas 1 dan slot kuliah ditetapkan dengan kode aktivitas 4.
+[TABLE]
+ | (3.1)
+[/TABLE]
+Keterangan:
+= himpunan slot wajib utama;
+= slot aktivitas kerja;
+= slot aktivitas kuliah.
+[Heading 3] 3.4.3 Pembentukan Transit Slot
+Transit slot adalah slot penyangga yang ditambahkan satu posisi sebelum dan satu posisi sesudah setiap elemen mandatory core, sepanjang slot tersebut belum menjadi bagian dari mandatory core. Transit slot diberi kode aktivitas santai (3). Penambahan ini bertujuan agar tidur tidak berbatasan langsung dengan aktivitas wajib, sehingga transisi antaraktivitas menjadi lebih realistis secara biologis dan menghindari kromosom yang menempatkan tidur tepat berdampingan dengan jam kerja atau kuliah.
+[TABLE]
+ | (3.2)
+[/TABLE]
+Keterangan:
+= himpunan slot transisi;
+= indeks slot pada mandatory core;
+= slot transisi hasil perluasan dari slot wajib.
+[Heading 3] 3.4.4 Pembentukan Mandatory Absolute
+Mandatory absolute merupakan gabungan antara mandatory core dan transit slot. Seluruh slot yang termasuk dalam mandatory absolute tidak boleh dimodifikasi oleh operator evolusi (crossover dan mutasi) maupun oleh prosedur repair chromosome. Dengan pembatasan ini, sistem menjamin bahwa aktivitas wajib beserta slot transisinya selalu dipertahankan sepanjang proses optimasi.
+[TABLE]
+ | (3.3)
+[/TABLE]
+Keterangan:
+= himpunan slot wajib absolut;
+= slot kerja dan kuliah;
+= slot transisi.
+[Heading 3] 3.4.5 Feasibility Check
+Feasibility check digunakan untuk memastikan bahwa jadwal harian masih memiliki ruang yang memadai untuk proses optimasi tidur. Dalam implementasi sistem, pemeriksaan kelayakan dilakukan berdasarkan jumlah slot yang termasuk dalam mandatory_absolute. Apabila jumlah slot wajib melebihi 36 dari total 48 slot harian, jadwal dinyatakan tidak layak karena tidak lagi menyediakan ruang minimum yang memadai untuk tidur.
+[TABLE]
+ | (3.3)
+[/TABLE]
+Keterangan:
+= jumlah slot wajib absolut;
+= batas maksimum slot wajib agar jadwal masih layak dioptimasi.
+Selain feasibility check, sistem juga memiliki mekanisme survival_mode yang diaktifkan apabila blok slot bebas terpanjang dalam satu hari kurang dari 12 slot dan terdapat aktivitas wajib pada hari tersebut. Berbeda dari feasibility check, survival_mode tidak menghentikan optimasi, melainkan menandai bahwa jadwal berada dalam kondisi sangat padat sehingga beberapa aturan kualitas tidur perlu dilonggarkan agar solusi tetap dapat dicari.
+[TABLE]
+ | (3.4)
+[/TABLE]
+Keterangan:
+= jumlah slot bebas yang masih digunakan;
+= total slot dalam satu hari;
+= jumlah slot yang tidak boleh dimodifikasi.
+[Heading 2] Prosedur Eksekusi Genetic Algorithm dan Hill Climbing
+Prosedur eksekusi Genetic Algorithm dan Hill Climbing merupakan tahapan utama dalam penelitian ini yang bertujuan menghasilkan jadwal tidur dan aktivitas dengan kualitas terbaik berdasarkan data yang telah melalui proses pra-pemrosesan. Algoritma yang digunakan menggabungkan Genetic Algorithm sebagai mekanisme pencarian global (global search) dengan Hill Climbing sebagai mekanisme penyempurnaan lokal (local search). Kombinasi kedua metode tersebut memungkinkan sistem mengeksplorasi ruang solusi yang luas sekaligus memperbaiki solusi terbaik yang telah diperoleh sehingga menghasilkan jadwal yang lebih optimal.
+Secara umum, proses optimasi diawali dengan pembentukan populasi awal yang terdiri atas sejumlah kandidat jadwal. Setiap kandidat direpresentasikan sebagai kromosom yang memuat susunan aktivitas selama satu hari dalam bentuk 48 slot waktu. Seluruh kromosom yang dibangkitkan terlebih dahulu melewati proses repair chromosome untuk memastikan bahwa seluruh aktivitas wajib tetap terpenuhi dan tidak terdapat pelanggaran terhadap kendala keras (hard constraints). Setelah dinyatakan layak, setiap kromosom dievaluasi menggunakan fungsi fitness untuk mengetahui tingkat kualitas solusi yang dihasilkan.
+Selanjutnya Genetic Algorithm dijalankan secara iteratif selama sejumlah generasi. Pada setiap generasi dilakukan proses seleksi individu terbaik, pembentukan keturunan melalui crossover, mutasi terhadap sebagian gen, serta evaluasi ulang terhadap individu hasil evolusi. Setelah seluruh proses evolusi selesai, solusi terbaik yang diperoleh diteruskan ke tahap Hill Climbing. Tahap ini bertujuan memperbaiki detail jadwal melalui pencarian lokal sehingga diperoleh solusi akhir yang memiliki nilai fitness lebih tinggi dibandingkan hasil Genetic Algorithm saja.
+Alur lengkap pelaksanaan Genetic Algorithm dan Hill Climbing pada penelitian ini ditunjukkan pada Gambar 3.6.
+Gambar 3. 6 Alur Genetic Algorithm
+Sumber: Diolah penulis
+3.5.1 Inisialisasi Populasi
+Tahap pertama adalah pembentukan populasi awal. Sistem membangkitkan sejumlah kromosom secara acak dengan tetap memperhatikan batasan aktivitas yang telah diperoleh pada tahap pra-pemrosesan data. Aktivitas yang bersifat wajib, seperti jam kerja, kuliah, maupun slot transisi, dipertahankan pada posisi yang telah ditentukan, sedangkan slot yang masih kosong diisi dengan kandidat aktivitas tidur utama, tidur siang (nap), atau waktu luang.
+Setelah populasi awal terbentuk, setiap kromosom diperiksa menggunakan mekanisme repair chromosome. Tahap ini memastikan bahwa tidak terdapat konflik aktivitas maupun pelanggaran terhadap seluruh kendala wajib sebelum kromosom dievaluasi lebih lanjut.
+3.5.2 Evaluasi Fitness
+Seluruh kromosom yang telah dinyatakan layak kemudian dievaluasi menggunakan fungsi fitness. Proses evaluasi dilakukan untuk menentukan kualitas setiap kandidat jadwal berdasarkan beberapa indikator yang telah ditetapkan pada penelitian ini.
+Evaluasi mempertimbangkan tingkat pemulihan tidur, durasi tidur aktual, tingkat kelelahan setelah menjalankan seluruh aktivitas, serta konsistensi waktu mulai tidur dibandingkan hari sebelumnya. Hasil evaluasi berupa satu nilai fitness yang digunakan sebagai dasar dalam menentukan individu terbaik selama proses evolusi.
+Nilai fitness yang lebih tinggi menunjukkan bahwa kromosom tersebut memiliki kualitas jadwal yang lebih baik sehingga memiliki peluang lebih besar untuk dipertahankan pada generasi berikutnya.
+3.5.3 Elitisme dan Seleksi Parent
+Setelah seluruh individu dievaluasi, sistem melakukan proses seleksi untuk menentukan kromosom yang akan digunakan sebagai induk (parent) pada proses reproduksi.
+Selain seleksi, diterapkan pula mekanisme elitisme untuk mempertahankan sejumlah individu dengan nilai fitness tertinggi agar tetap berada pada populasi generasi berikutnya. Penerapan elitisme bertujuan menjaga agar solusi terbaik yang telah diperoleh tidak hilang akibat proses crossover maupun mutasi.
+Sementara itu, individu lain dipilih sebagai parent berdasarkan mekanisme seleksi yang digunakan pada implementasi sistem sehingga proses evolusi tetap mempertahankan keberagaman populasi.
+3.5.4 Crossover
+Crossover menggunakan metode single-point crossover. Titik potong dipilih secara acak pada rentang slot 10 hingga 37 untuk menghindari keturunan yang hampir identik dengan salah satu parent. Gen dari parent pertama diambil dari slot 0 hingga titik potong, dan gen dari parent kedua diambil dari titik potong hingga slot 47, sehingga menghasilkan satu keturunan. Setiap keturunan hasil crossover kemudian diproses oleh repair chromosome sebelum dimasukkan ke populasi berikutnya.
+[TABLE]
+ | (3.5)
+[/TABLE]
+Keterangan :
+: kromosom anak;
+: kromosom induk pertama;
+: kromosom induk kedua;
+: titik potong crossover;
+: bagian kromosom dari indeks 0 sampai sebelum titik potong;
+: bagian kromosom dari titik potong sampai indeks 47.
+3.5.5 Mutasi
+Mutasi diterapkan pada setiap gen keturunan yang berada di luar mandatory absolute dengan probabilitas sebesar mut_rate yang diperoleh dari hasil kalibrasi parameter. Gen yang termutasi diganti dengan nilai acak dari distribusi tiga aktivitas non-wajib: tidur (kode 0) dengan probabilitas 5%, nap (kode 2) dengan probabilitas 10%, dan santai (kode 3) dengan probabilitas 85%. Distribusi probabilitas yang sangat condong ke aktivitas santai bertujuan agar mutasi tidak terlalu agresif dalam menambahkan tidur secara acak, melainkan membiarkan mekanisme repair yang mengatur distribusi tidur secara deterministik.
+[TABLE]
+ | (3.6)
+[/TABLE]
+Keterangan:
+: bilangan acak pada rentang 0 sampai 1;
+: probabilitas mutasi;
+: gen pada slot ke-i;
+mutasi = perubahan nilai gen menjadi aktivitas non-wajib yang diizinkan.
+3.5.6 Penyempurnaan Solusi Menggunakan Hill Climbing
+Tahap terakhir merupakan proses penyempurnaan solusi menggunakan Hill Climbing.Berbeda dengan Genetic Algorithm yang bekerja pada sekumpulan populasi, Hill Climbing hanya memproses satu solusi terbaik hasil evolusi. Sistem membangkitkan beberapa solusi tetangga (neighbor) dengan melakukan perubahan kecil pada slot aktivitas yang masih dapat dimodifikasi.
+Setiap solusi tetangga kemudian dievaluasi menggunakan fungsi fitness. Apabila ditemukan solusi yang memiliki nilai fitness lebih tinggi dibandingkan solusi saat ini, maka solusi tersebut dijadikan solusi baru dan proses pencarian dilanjutkan dari posisi tersebut. Sebaliknya, apabila tidak ditemukan perbaikan setelah mencapai batas iterasi yang ditentukan, maka proses Hill Climbing dihentikan.
+Melalui mekanisme tersebut, solusi terbaik hasil Genetic Algorithm dapat disempurnakan sehingga menghasilkan jadwal tidur dan aktivitas yang lebih optimal tanpa harus melakukan proses evolusi populasi Kembali
+3.5.7 Hasil Eksekusi Genetic Algorithm dan Hill Climbing
+Setelah seluruh tahapan selesai dilaksanakan, sistem menghasilkan satu kromosom terbaik sebagai solusi optimasi harian. Solusi tersebut memuat jadwal aktivitas selama satu hari yang telah memenuhi seluruh kendala wajib serta memiliki nilai fitness tertinggi di antara seluruh kandidat yang dihasilkan selama proses optimasi.
+Kromosom terbaik selanjutnya digunakan sebagai masukan pada proses optimasi hari berikutnya dalam penyusunan jadwal mingguan. Informasi mengenai tingkat kelelahan akhir dan waktu mulai tidur utama juga diteruskan sebagai kondisi awal (carry-over) sehingga sistem dapat menjaga konsistensi jadwal tidur antarhari dan menghasilkan pola tidur yang lebih stabil selama periode optimasi tujuh hari.
+[Heading 2] Optimasi Jadwal Tidur Mingguan
+Optimasi jadwal tidur mingguan merupakan tahapan yang bertujuan menghasilkan jadwal tidur yang tidak hanya optimal pada satu hari tertentu, tetapi juga mempertahankan kualitas dan konsistensi pola tidur selama tujuh hari berturut-turut. Berbeda dengan optimasi harian yang memperlakukan setiap hari secara independen, optimasi mingguan mempertimbangkan keterkaitan kondisi fisiologis antarhari sehingga solusi yang dihasilkan lebih mendekati kondisi nyata.
+Pada penelitian ini, proses optimasi dilakukan secara berurutan (sequential optimization). Setiap hari dioptimalkan satu per satu menggunakan Genetic Algorithm dan Hill Climbing dengan tetap memperhatikan kondisi yang dihasilkan pada hari sebelumnya. Pendekatan ini dipilih karena kualitas tidur pada suatu hari akan memengaruhi kondisi tubuh dan kebutuhan pemulihan pada hari berikutnya. Dengan demikian, sistem tidak hanya mencari solusi terbaik untuk setiap hari secara terpisah, tetapi juga menjaga kesinambungan jadwal tidur selama satu minggu.
+Alur optimasi mingguan dimulai dari hari pertama menggunakan kondisi awal yang telah ditentukan berdasarkan data masukan pengguna. Setelah proses optimasi selesai, sistem menyimpan informasi penting yang akan diteruskan ke proses optimasi hari berikutnya. Proses tersebut dilakukan secara berulang hingga seluruh jadwal selama tujuh hari berhasil dibentuk.
+Optimasi Hari Pertama
+Proses optimasi diawali pada hari pertama menggunakan data aktivitas yang telah melalui tahap pra-pemrosesan. Pada tahap ini belum tersedia informasi mengenai kondisi hari sebelumnya sehingga sistem menggunakan nilai awal (initial state) yang telah ditentukan sebagai dasar proses optimasi.
+Genetic Algorithm dan Hill Climbing kemudian dijalankan untuk menghasilkan jadwal tidur terbaik pada hari pertama. Hasil optimasi berupa kromosom dengan nilai fitness tertinggi beserta informasi pendukung, seperti waktu mulai tidur utama, durasi tidur, serta tingkat kelelahan pada akhir hari.Informasi tersebut disimpan sebagai kondisi awal untuk proses optimasi pada hari berikutnya.
+Carry-Over Kondisi Antarhari
+Setelah optimasi suatu hari selesai dilakukan, sistem tidak menghapus seluruh informasi yang dihasilkan. Beberapa kondisi penting diteruskan (carry-over) ke hari berikutnya agar proses optimasi mampu mempertahankan kesinambungan pola tidur.
+Informasi yang diteruskan meliputi:
+tingkat kelelahan pada akhir hari (ending fatigue);
+waktu mulai tidur utama sebagai acuan regularitas tidur;
+informasi kontinuitas blok tidur yang melewati batas pergantian hari (tail memory);
+parameter lain yang diperlukan untuk menjaga konsistensi proses evaluasi.
+Mekanisme carry-over memungkinkan sistem menyesuaikan kebutuhan pemulihan berdasarkan kondisi aktual pengguna sehingga jadwal yang dihasilkan tidak bersifat independen antarhari.
+Optimasi Hari Kedua hingga Hari Ketujuh
+Tahap berikutnya dilakukan dengan prosedur yang sama seperti pada hari pertama. Perbedaannya terletak pada kondisi awal yang digunakan. Apabila pada hari pertama sistem menggunakan kondisi awal standar, maka pada hari kedua hingga hari ketujuh kondisi awal diperoleh dari hasil optimasi hari sebelumnya.
+Pada setiap hari, sistem menjalankan seluruh tahapan Genetic Algorithm dan Hill Climbing mulai dari pembentukan populasi, evaluasi fitness, proses evolusi menggunakan Genetic Algorithm, hingga penyempurnaan menggunakan Hill Climbing. Setelah solusi terbaik diperoleh, kondisi akhir kembali disimpan dan diteruskan ke hari selanjutnya.
+Proses ini berlangsung secara berulang hingga seluruh jadwal selama tujuh hari berhasil dioptimalkan.
+Penyusunan Jadwal Mingguan
+Setelah seluruh proses optimasi harian selesai dilakukan, sistem menggabungkan hasil optimasi dari masing-masing hari menjadi satu jadwal mingguan yang utuh.
+Penyusunan jadwal dilakukan dengan mempertahankan urutan kronologis setiap hari sehingga pengguna dapat melihat distribusi aktivitas dan waktu tidur selama satu minggu secara keseluruhan. Selain menghasilkan jadwal lengkap, sistem juga menghitung nilai evaluasi mingguan yang diperoleh dari akumulasi hasil optimasi setiap hari.
+Informasi yang disajikan meliputi:
+jadwal aktivitas harian selama tujuh hari;
+durasi tidur setiap hari;
+waktu mulai tidur utama setiap hari;
+tingkat kelelahan akhir setiap hari;
+nilai fitness harian;
+nilai fitness total selama satu minggu.
+Penyajian informasi tersebut memudahkan proses analisis terhadap kualitas jadwal yang dihasilkan serta mempermudah proses perbandingan dengan metode pembanding pada tahap evaluasi.
+Hasil Optimasi Mingguan
+Tahap akhir menghasilkan satu paket jadwal tidur mingguan yang telah memenuhi seluruh kendala aktivitas wajib serta dioptimalkan berdasarkan kualitas tidur, durasi tidur, tingkat kelelahan, dan konsistensi pola tidur antarhari.
+Hasil optimasi ini selanjutnya digunakan sebagai masukan pada tahap Baseline Comparison dan Evaluasi Sistem untuk mengetahui efektivitas Genetic Algorithm dan Hill Climbing dibandingkan metode pembanding. Dengan pendekatan optimasi secara berurutan dan mekanisme carry-over, sistem diharapkan mampu menghasilkan jadwal tidur yang lebih realistis, adaptif, dan konsisten dibandingkan apabila setiap hari dioptimalkan secara terpisah.
+[Heading 2] Kalibrasi Parameter dengan Grid Search
+Kalibrasi parameter dilakukan melalui grid search ekshaustif untuk menentukan kombinasi ukuran populasi, laju mutasi, dan laju crossover yang menghasilkan rata-rata fitness tertinggi pada dataset kalibrasi. Grid search mengevaluasi delapan belas kombinasi parameter, yaitu kombinasi pop_size bernilai 50 dan 100, mut_rate bernilai 0,01; 0,05; dan 0,10, serta crossover_rate bernilai 0,70; 0,80; dan 0,90. Hasil kalibrasi menunjukkan bahwa kombinasi terbaik adalah pop_size = 100, mut_rate = 0,10, dan crossover_rate = 0,80. Kalibrasi hanya dilakukan pada dataset kalibrasi, kemudian hasilnya disimpan dalam file JSON dan digunakan pada seluruh pengujian akhir tanpa melakukan kalibrasi ulang pada dataset pengujian.
+Parameter yang dikalibrasi beserta nilai yang diuji adalah sebagai berikut.
+Ukuran populasi (pop_size): diuji pada nilai 50 dan 100.
+Laju mutasi (mut_rate): diuji pada nilai 0,01; 0,05; dan 0,10.
+Laju crossover (crossover_rate): diuji pada nilai 0,70; 0,80; dan 0,90.
+[TABLE]
+ | (3.7)
+[/TABLE]
+Keterangan:
+: ukuran populasi terbaik;
+: laju mutasi terbaik;
+: rata-rata fitness dari kombinasi parameter p dan m;
+: kandidat ukuran populasi;
+: kandidat laju mutasi.
+Dengan demikian terdapat delapan belas kombinasi parameter yang diuji secara ekshaustif. Untuk setiap kombinasi, sistem menjalankan Genetic Algorithm dan Hill Climbing pada seluruh subjek dalam dataset kalibrasi pada tiga hari representatif, yaitu Senin, Rabu, dan Sabtu. Pemilihan tiga hari representatif dimaksudkan untuk mencakup variasi beban aktivitas yang berbeda antara hari kerja awal minggu, pertengahan minggu, dan akhir pekan.
+Untuk setiap subjek dan setiap hari, sistem menjalankan 150 generasi GA dilanjutkan dengan HC, kemudian mencatat nilai fitness dari solusi terbaik yang dihasilkan. Rata-rata fitness dihitung dari seluruh kombinasi subjek dan hari. Kombinasi parameter dengan rata-rata fitness tertinggi ditetapkan sebagai parameter final dan disimpan untuk digunakan pada skenario pengujian berikutnya.
+Gambar 3. 7 Grid Search
+Sumber: Diolah penulis
+Untuk mendukung reproduksibilitas eksperimen, seluruh proses pengujian akhir dijalankan menggunakan random seed sebesar 42. Penggunaan seed yang tetap bertujuan mengendalikan variasi acak dalam pembentukan populasi awal, proses seleksi, crossover, dan mutasi pada Genetic Algorithm. Dengan demikian, hasil pengujian dapat dijalankan kembali menggunakan konfigurasi parameter dan dataset yang sama
+[Heading 2] Baseline Comparison
+Baseline comparison digunakan untuk menilai kinerja Genetic Algorithm dan Hill Climbing secara komparatif terhadap dua metode pembanding yang lebih sederhana. Perbandingan dilakukan pada hari Rabu sebagai hari representatif pertengahan minggu. Metrik yang dibandingkan adalah nilai fitness, kelelahan akhir hari (fatigue), dan durasi tidur (sleep_hours).
+Pemilihan kedua baseline tersebut bertujuan memberikan dua titik pembanding yang berbeda. Greedy schedule merepresentasikan pendekatan adaptif sederhana yang hanya mempertimbangkan slot bebas terpanjang, sedangkan fixed schedule merepresentasikan pola tidur konvensional yang bersifat tetap dan tidak menyesuaikan diri terhadap variasi aktivitas harian.
+[Heading 3] 3.8.1 Greedy Schedule
+Greedy schedule membentuk jadwal tidur dengan strategi satu langkah tanpa optimasi lanjutan. Algoritma mengidentifikasi seluruh slot bebas di luar mandatory absolute, mengelompokkannya menjadi blok-blok berurutan, mengurutkan blok tersebut dari yang terpanjang hingga terpendek, kemudian mengisi blok-blok tersebut dengan tidur secara berurutan hingga target 14 slot terpenuhi. Apabila target sudah tercapai, slot bebas yang tersisa dibiarkan sebagai aktivitas santai. Greedy schedule tidak melakukan evaluasi fitness maupun perbaikan kualitas tidur; ia semata-mata mengisi ruang terpanjang yang tersedia.
+[Heading 3] 3.8.2 Fixed Schedule
+Fixed schedule membentuk jadwal tidur tetap yang diasumsikan dimulai pukul 22.00 dengan durasi 7 jam, setara dengan 14 slot mulai dari slot ke-44. Apabila slot-slot tidur tersebut bertabrakan dengan mandatory absolute, aktivitas wajib tetap dipertahankan dan slot bersangkutan tidak diberi kode tidur. Fixed schedule merepresentasikan pola tidur konvensional seseorang yang tidak menyesuaikan jadwal tidurnya dengan variasi aktivitas harian.
+[Heading 3] 3.8.3 Evaluasi Komparatif
+Ketiga metode—Genetic Algorithm dan Hill Climbing, greedy schedule, dan fixed schedule—dievaluasi menggunakan fungsi fitness yang sama, sehingga perbandingan metrik dapat dilakukan secara konsisten dan adil. Hasil dari setiap metode meliputi nilai fitness, fatigue akhir hari, dan durasi tidur dalam jam. Selisih nilai fitness, fatigue, dan durasi tidur antara Genetic Algorithm dan Hill Climbing dengan kedua baseline menjadi indikator utama apakah pendekatan yang diusulkan menghasilkan jadwal yang lebih baik.
+[TABLE]
+ | (3.8)
+[/TABLE]
+Keterangan :
+: persentase peningkatan fitness;
+: fitness metode Genetic Algorithm dan Hill Climbing;
+: fitness metode pembanding;
+: nilai absolut fitness baseline.
+Gambar 3. 8 Baseline Comparison dan Evaluasi
+Sumber: Diolah penulis
+[Heading 2] Evaluasi Sistem
+Evaluasi sistem dilakukan untuk mengukur kinerja Genetic Algorithm dan Hill Climbing dalam menghasilkan jadwal tidur yang optimal berdasarkan data aktivitas pengguna. Tahap evaluasi bertujuan untuk mengetahui apakah algoritma yang diusulkan mampu menghasilkan solusi yang lebih baik dibandingkan metode pembanding serta mampu mempertahankan performa yang konsisten pada berbagai karakteristik pengguna. Seluruh pengujian dilakukan menggunakan parameter terbaik yang diperoleh dari tahap kalibrasi parameter sehingga hasil evaluasi merepresentasikan performa optimal dari sistem yang dikembangkan.
+Pada penelitian ini, evaluasi sistem dilaksanakan melalui tiga skenario pengujian, yaitu Weekly Optimization Test, Baseline Comparison, dan Multi-Subject Test. Ketiga skenario tersebut dirancang untuk mengevaluasi performa algoritma dari aspek kualitas solusi, kemampuan adaptasi terhadap perubahan aktivitas, serta konsistensi hasil optimasi pada berbagai kondisi pengguna.
+Weekly Optimization Test
+Pengujian pertama dilakukan untuk mengevaluasi kemampuan sistem dalam menghasilkan jadwal tidur selama tujuh hari secara berurutan. Pengujian ini bertujuan untuk mengetahui apakah mekanisme optimasi mingguan mampu mempertahankan kualitas jadwal tidur tanpa menyebabkan penurunan performa pada hari-hari berikutnya.
+Pada tahap ini, sistem menerima data aktivitas selama satu minggu yang telah melalui proses pra-pemrosesan. Selanjutnya Genetic Algorithm dan Hill Climbing dijalankan secara berurutan mulai dari hari pertama hingga hari ketujuh dengan menerapkan mekanisme carry-over antarhari. Setelah seluruh proses optimasi selesai, sistem menghasilkan satu jadwal mingguan beserta nilai evaluasi setiap hari.
+Beberapa informasi yang diamati selama pengujian meliputi:
+nilai fitness harian;
+nilai fitness total selama satu minggu;
+durasi tidur setiap hari;
+waktu mulai tidur utama;
+tingkat kelelahan pada akhir setiap hari;
+konsistensi pola tidur antarhari.
+Hasil pengujian ini digunakan untuk mengetahui kemampuan algoritma dalam menjaga kualitas jadwal tidur selama periode optimasi tanpa mengoptimalkan setiap hari secara terpisah.
+Baseline Comparison
+Pengujian kedua dilakukan dengan membandingkan performa Genetic Algorithm dan Hill Climbing terhadap dua metode pembanding (baseline), yaitu Greedy Schedule dan Fixed Schedule. Pengujian ini bertujuan untuk mengetahui sejauh mana algoritma yang diusulkan mampu menghasilkan solusi yang lebih baik dibandingkan pendekatan sederhana.
+Pada setiap skenario pengujian, ketiga metode menggunakan data masukan yang sama sehingga seluruh metode menghadapi kondisi aktivitas dan kendala yang identik. Setelah proses optimasi selesai, hasil dari masing-masing metode dibandingkan berdasarkan indikator evaluasi yang telah ditentukan.
+Aspek yang dibandingkan meliputi:
+nilai fitness akhir;
+durasi tidur yang diperoleh;
+jumlah pelanggaran terhadap aturan penjadwalan;
+tingkat kelelahan akhir;
+konsistensi waktu mulai tidur selama satu minggu.
+Perbandingan tersebut digunakan untuk menunjukkan peningkatan performa yang diperoleh melalui penerapan Genetic Algorithm dan Hill Climbing dibandingkan metode yang tidak menggunakan mekanisme optimasi evolusioner maupun pencarian lokal.
+Multi-Subject Test
+Selain dilakukan pada satu data pengguna, sistem juga diuji menggunakan beberapa data subjek yang memiliki karakteristik aktivitas berbeda. Pengujian ini bertujuan untuk mengetahui kemampuan generalisasi algoritma terhadap variasi kondisi pengguna.
+Setiap subjek memiliki kombinasi jadwal kerja, jadwal kuliah, waktu luang, dan kepadatan aktivitas yang berbeda-beda. Seluruh data diproses menggunakan prosedur optimasi yang sama tanpa melakukan perubahan terhadap parameter algoritma. Dengan demikian, perbedaan hasil yang diperoleh sepenuhnya dipengaruhi oleh karakteristik aktivitas masing-masing subjek.
+Hasil optimasi setiap subjek kemudian dianalisis untuk mengetahui apakah algoritma tetap mampu menghasilkan jadwal tidur yang layak dan berkualitas pada berbagai kondisi aktivitas.
+Indikator Evaluasi
+Setelah seluruh skenario pengujian selesai dilaksanakan, hasil optimasi dianalisis menggunakan beberapa indikator evaluasi yang digunakan sebagai ukuran performa sistem.
+Indikator yang digunakan pada penelitian ini meliputi:
+Nilai Fitness, yaitu indikator utama yang menunjukkan kualitas keseluruhan jadwal hasil optimasi.
+Durasi Tidur Harian, yaitu total waktu tidur utama yang diperoleh pada setiap hari selama periode optimasi.
+Tingkat Kelelahan Akhir (Ending Fatigue), yaitu kondisi kelelahan pengguna setelah seluruh aktivitas harian selesai dijalankan.
+Regularitas Tidur, yaitu konsistensi waktu mulai tidur utama antarhari yang dihasilkan selama optimasi mingguan.
+Jumlah Pelanggaran Kendala, yaitu banyaknya pelanggaran terhadap aturan penjadwalan yang masih ditemukan setelah proses optimasi selesai.
+Seluruh indikator tersebut dianalisis secara bersamaan sehingga evaluasi tidak hanya berfokus pada nilai fitness, tetapi juga mempertimbangkan kualitas jadwal tidur yang dihasilkan dari sisi biologis maupun operasional.
+Analisis Hasil Pengujian
+Tahap terakhir merupakan analisis terhadap seluruh hasil pengujian yang telah diperoleh. Analisis dilakukan dengan membandingkan performa Genetic Algorithm dan Hill Climbing pada ketiga skenario pengujian untuk mengetahui tingkat efektivitas algoritma dalam menyelesaikan permasalahan optimasi jadwal tidur.
+Hasil pengujian disajikan dalam bentuk tabel dan visualisasi yang memuat nilai setiap indikator evaluasi. Selanjutnya dilakukan pembahasan mengenai kelebihan dan keterbatasan algoritma berdasarkan hasil yang diperoleh selama proses pengujian.
+Melalui tahapan evaluasi tersebut, penelitian ini dapat memberikan gambaran mengenai kemampuan Genetic Algorithm dan Hill Climbing dalam menghasilkan jadwal tidur yang memenuhi kendala aktivitas, menjaga konsistensi pola tidur antarhari, serta memberikan kualitas solusi yang lebih baik dibandingkan metode pembanding. Dengan demikian, hasil evaluasi menjadi dasar dalam menjawab tujuan penelitian sekaligus menilai keberhasilan implementasi sistem optimasi yang dikembangkan.
+[Heading 2] Implementasi Program
+Sistem dikembangkan menggunakan bahasa pemrograman Python dengan pustaka inti optimasi pada paket src/sora, layanan REST API berbasis FastAPI (api.py), serta antarmuka web berbasis React dan Streamlit sehingga pengguna dapat melakukan proses optimasi jadwal tidur melalui peramban web secara interaktif.
+Implementasi sistem dibagi menjadi beberapa modul utama agar proses pengembangan, pengujian, dan pemeliharaan program dapat dilakukan secara terstruktur. Setiap modul memiliki tanggung jawab yang berbeda mulai dari pembacaan data, proses optimasi, evaluasi hasil, hingga penyajian laporan kepada pengguna.
+[Heading 3] 3.10.1 Arsitektur Program
+Secara umum, sistem terdiri atas empat kelompok utama, yaitu pustaka inti optimasi, layanan API, antarmuka pengguna, dan skrip eksperimen.
+Pustaka inti optimasi (src/sora) memuat seluruh komponen komputasi, mulai dari pembacaan data (data/parser.py), engine Genetic Algorithm (genetic_algorithm/), Hill Climbing (hill_climbing/), optimasi mingguan (experiments/weekly.py), kalibrasi parameter (experiments/calibration.py), metode baseline (experiments/baseline.py), pengujian multi-subjek (experiments/multi_subject.py), hingga indikator evaluasi (utils/metrics.py).
+Layanan API (api.py) menyediakan REST API berbasis FastAPI yang menjembatani antarmuka pengguna dengan pustaka inti, meliputi unggah data, menjalankan optimasi, dan mengambil hasil.
+Antarmuka pengguna terdiri atas aplikasi web berbasis React yang dibangun menggunakan Vite (frontend/src) serta aplikasi Streamlit (frontend/app.py). Keduanya menangani input data, menjalankan optimasi, menampilkan jadwal, dan mengekspor laporan.
+Skrip eksperimen pada folder scripts (demo_thesis.py dan generate_report.py) digunakan untuk menjalankan demonstrasi dan menyusun laporan pengujian secara otomatis. Pemisahan kelompok tersebut memudahkan pengembangan karena perubahan pada satu bagian program tidak langsung memengaruhi bagian lainnya.
+[Heading 3] 3.10.2 Modul Pembacaan dan Pra-Pemrosesan Data
+Modul pertama bertugas membaca data aktivitas pengguna dari berkas CSV yang diunggah melalui antarmuka aplikasi. Setelah data dibaca, sistem mengubah seluruh informasi waktu ke dalam representasi 48 slot per hari dengan interval 30 menit.
+Pada tahap ini sistem juga:
+membentuk mandatory core untuk aktivitas wajib;
+membentuk transit slot antaraktivitas;
+membentuk mandatory absolute yang tidak boleh diubah oleh algoritma;
+melakukan feasibility check untuk mendeteksi konflik jadwal.
+Apabila ditemukan konflik, sistem menampilkan pesan kesalahan dan proses optimasi tidak dijalankan sampai data diperbaiki
+[Heading 3] 3.10.3 Modul Optimasi Harian
+Modul optimasi harian merupakan inti proses komputasi. Modul ini menerima kromosom hasil pra-pemrosesan kemudian menjalankan seluruh tahapan Genetic Algorithm dan Hill Climbing.
+Proses yang dilakukan meliputi:
+pembentukan populasi awal;
+evaluasi fitness;
+seleksi dan elitisme;
+crossover;
+mutasi;
+repair chromosome;
+penyempurnaan solusi menggunakan Hill Climbing.
+Hasil akhir modul ini adalah satu jadwal harian terbaik beserta nilai fitness dan informasi evaluasi pendukung.
+3.10.4 Modul Optimasi Mingguan
+Modul optimasi mingguan menjalankan optimasi secara berurutan selama tujuh hari. Setelah satu hari selesai dioptimalkan, sistem menyimpan kondisi akhir hari tersebut dan menggunakannya sebagai kondisi awal pada hari berikutnya.
+Informasi yang diteruskan antarhari meliputi:
+tingkat kelelahan akhir;
+waktu mulai tidur utama;
+kontinuitas blok tidur yang melewati pergantian hari.
+Dengan mekanisme tersebut, jadwal mingguan yang dihasilkan menjadi lebih konsisten dan tidak memperlakukan setiap hari sebagai masalah yang sepenuhnya terpisah.
+3.10.5 Modul Evaluasi dan Baseline Comparison
+Setelah optimasi selesai dilakukan, sistem menjalankan modul evaluasi untuk menghitung seluruh indikator pengujian. Modul ini juga menjalankan dua metode pembanding, yaitu Greedy Schedule dan Fixed Schedule.
+Hasil dari ketiga metode disimpan dalam struktur data yang sama sehingga dapat dibandingkan secara langsung berdasarkan:
+nilai fitness;
+durasi tidur;
+tingkat kelelahan akhir;
+konsistensi waktu mulai tidur;
+jumlah pelanggaran kendala.
+3.10.6 Modul Antarmuka Streamlit
+Antarmuka pengguna disediakan dalam dua bentuk, yaitu aplikasi web berbasis React yang dibangun menggunakan Vite (frontend/src) dan aplikasi Streamlit (frontend/app.py). Melalui kedua antarmuka ini pengguna dapat:
+mengunggah berkas CSV aktivitas;
+memilih parameter optimasi;
+menjalankan proses optimasi;
+melihat jadwal harian dan mingguan;
+membandingkan hasil dengan metode baseline;
+mengunduh laporan hasil evaluasi.
+Seluruh proses komputasi dijalankan di sisi server melalui layanan API (api.py), sedangkan hasilnya ditampilkan secara otomatis pada antarmuka web.
+3.10.7 Struktur Implementasi Program
+Untuk memudahkan pengelolaan kode, program diorganisasikan ke dalam beberapa berkas dan folder utama. Struktur implementasi yang digunakan ditunjukkan pada Tabel 3.3.
+[TABLE]
+Modul | Fungsi
+app.py | Mengelola antarmuka aplikasi Streamlit dan alur utama aplikasi.
+api.py | Menyediakan REST API berbasis FastAPI untuk layanan antarmuka web.
+src/sora/data/parser.py | Membaca dan memvalidasi data aktivitas dari berkas CSV.
+src/sora/genetic_algorithm/ (9 modul) | Menjalankan proses Genetic Algorithm (representasi, populasi, fitness, seleksi, crossover, mutasi, dan repair).
+src/sora/hill_climbing/local_search.py | Melakukan penyempurnaan solusi lokal.
+src/sora/experiments/weekly.py | Mengelola optimasi tujuh hari dan carry-over antarhari.
+src/sora/experiments/calibration.py | Menjalankan kalibrasi parameter dengan Grid Search.
+src/sora/experiments/baseline.py | Menjalankan Greedy dan Fixed Schedule.
+src/sora/experiments/multi_subject.py | Menjalankan pengujian multi-subjek.
+src/sora/utils/metrics.py | Menghitung indikator evaluasi kinerja.
+scripts/demo_thesis.py dan generate_report.py | Menjalankan demonstrasi dan menyusun laporan hasil pengujian.
+[/TABLE]
+3.10.8 Hasil Implementasi
+Melalui implementasi tersebut, sistem mampu menerima data aktivitas pengguna, menjalankan proses optimasi jadwal tidur selama tujuh hari, membandingkan hasil dengan metode baseline, serta menampilkan laporan evaluasi secara otomatis melalui antarmuka web.
+Hasil implementasi inilah yang selanjutnya digunakan pada Bab IV untuk melakukan pengujian dan pembahasan terhadap performa Genetic Algorithm dan Hill Climbing dalam menghasilkan jadwal tidur yang optimal pada pekerja dengan pola aktivitas tidak teratur.
+[Heading 2] Ringkasan Metodologi
+[Heading 1] BAB IV
+[Heading 1] HASIL DAN PEMBAHASAN
+Bab ini menyajikan hasil pengujian sistem Sleep Optimization and Rest Arrangement (SORA), yaitu sistem optimizer yang menerapkan Genetic Algorithm dan Hill Climbing untuk penyusunan jadwal tidur optimal, beserta pembahasannya. Seluruh eksperimen dijalankan pada dataset kalibrasi yang terdiri atas lima subjek dan dataset pengujian yang terdiri atas 59 subjek dengan menggunakan konfigurasi parameter terbaik hasil kalibrasi serta random seed sebesar 42 agar hasil yang diperoleh dapat direproduksi. Pembahasan difokuskan pada tiga skenario pengujian, yaitu kalibrasi parameter, pengujian optimasi mingguan (weekly optimization test), dan pengujian perbandingan terhadap metode baseline (baseline comparison).
+[Heading 2] Hasil Kalibrasi Parameter
+Kalibrasi parameter dilakukan menggunakan metode grid search pada dataset kalibrasi yang terdiri atas lima subjek. Grid search mengevaluasi 18 kombinasi parameter, yaitu kombinasi ukuran populasi 50 dan 100, laju mutasi 0,01; 0,05; dan 0,10, serta laju crossover 0,70; 0,80; dan 0,90. Setiap kombinasi dijalankan selama 150 generasi Genetic Algorithm dilanjutkan dengan Hill Climbing pada tiga hari representatif, yaitu Senin, Rabu, dan Sabtu. Hasil kalibrasi disajikan pada Tabel 4.1.
+Tabel 4.1 Hasil Kalibrasi Parameter Menggunakan Grid Search
+[TABLE]
+Ukuran Populasi | Laju Mutasi | Laju Crossover | Rata-rata Fitness
+50 | 0,01 | 0,70 | 2,843
+50 | 0,01 | 0,80 | 2,854
+50 | 0,01 | 0,90 | −263,881
+50 | 0,05 | 0,70 | 2,904
+50 | 0,05 | 0,80 | 2,904
+50 | 0,05 | 0,90 | −263,826
+50 | 0,10 | 0,70 | 2,906
+50 | 0,10 | 0,80 | −263,824
+50 | 0,10 | 0,90 | 2,915
+100 | 0,01 | 0,70 | −263,868
+100 | 0,01 | 0,80 | −263,851
+100 | 0,01 | 0,90 | 2,884
+100 | 0,05 | 0,70 | 2,905
+100 | 0,05 | 0,80 | −263,825
+100 | 0,05 | 0,90 | 2,902
+100 | 0,10 | 0,70 | 2,915
+100 | 0,10 | 0,80 | 2,917
+100 | 0,10 | 0,90 | 2,905
+[/TABLE]
+Sumber: Diolah penulis
+Berdasarkan Tabel 4.1 dapat diamati bahwa kombinasi parameter yang menghasilkan rata-rata fitness tertinggi adalah kombinasi ukuran populasi 100, laju mutasi 0,10, dan laju crossover 0,80 dengan nilai rata-rata fitness sebesar 2,917. Beberapa kombinasi lainnya menghasilkan nilai rata-rata fitness yang mendekati nilai tersebut, antara lain kombinasi ukuran populasi 50, laju mutasi 0,10, dan laju crossover 0,90 sebesar 2,915 serta kombinasi ukuran populasi 100, laju mutasi 0,10, dan laju crossover 0,70 sebesar 2,915. Pada sebagian kombinasi, sistem menghasilkan solusi dengan nilai fitness sangat rendah mendekati minus 263,8. Nilai tersebut diperoleh ketika algoritma menghasilkan solusi yang melanggar kendala penjadwalan secara besar sehingga penalti mendominasi nilai fitness. Hal ini menunjukkan bahwa hasil optimasi cukup peka terhadap kombinasi parameter sehingga pemilihan parameter perlu dilakukan secara eksperimental. Berdasarkan hasil tersebut, kombinasi ukuran populasi 100, laju mutasi 0,10, dan laju crossover 0,80 digunakan sebagai konfigurasi default sistem dan digunakan pada seluruh skenario pengujian berikutnya.
+[Heading 2] Hasil Pengujian Optimasi Mingguan
+Pengujian optimasi mingguan dilakukan pada seluruh subjek dataset pengujian yang berjumlah 59 subjek. Untuk setiap subjek, sistem menyusun jadwal tidur selama tujuh hari secara berurutan dengan mempertimbangkan komponen kelelahan yang diwariskan antarhari (carry-over) sehingga solusi yang dihasilkan memperhatikan keseimbangan antara aktivitas, tidur, dan istirahat pada level mingguan. Statistik hasil pengujian optimasi mingguan disajikan pada Tabel 4.2.
+Tabel 4.2 Statistik Hasil Pengujian Optimasi Mingguan pada Seluruh Subjek Pengujian
+[TABLE]
+Metrik | Nilai
+Rata-rata fitness | −0,755
+Median fitness | 6,819
+Fitness maksimum | 7,182
+Fitness minimum | −186,438
+Subjek dengan fitness positif | 53 dari 59
+Rata-rata durasi tidur (jam) | 6,52
+[/TABLE]
+Sumber: Diolah penulis
+Berdasarkan Tabel 4.2 dapat diketahui bahwa seluruh 59 subjek berhasil dioptimalkan dengan status optimized pada ketujuh hari yang diuji. Median rata-rata fitness antar subjek sebesar 6,819 dengan nilai maksimum 7,182. Rata-rata durasi tidur yang dihasilkan sistem adalah 6,52 jam per hari, mendekati target dasar tujuh jam dengan tetap memperhitungkan ketersediaan slot bebas pada masing-masing hari. Lima subjek dengan rata-rata fitness tertinggi berturut-turut adalah Fikri Fitriani (7,182), Dimas Baskoro (7,181), Dian Firmansyah (7,176), Eko Setiawan (7,167), dan Yudha Susanto (7,162). Sebanyak 53 dari 59 subjek menghasilkan rata-rata fitness positif, sedangkan enam subjek menghasilkan rata-rata fitness negatif yang akan dibahas lebih lanjut pada subbab Pembahasan.
+[Heading 2] Hasil Pengujian Baseline Comparison
+Pengujian baseline comparison dilakukan pada hari Rabu sebagai hari representatif dengan membandingkan sistem SORA terhadap dua metode pembanding, yaitu greedy schedule yang mengisi slot bebas terpanjang dengan tidur dan fixed schedule yang menetapkan waktu tidur tetap pukul 22.00. Ketiga metode dievaluasi menggunakan fungsi fitness yang sama. Hasil agregat dari pengujian tersebut pada seluruh subjek pengujian disajikan pada Tabel 4.3.
+[TABLE]
+Metrik | SORA | Greedy | Fixed
+Rata-rata fitness | 6,369 | −33,173 | −5.942,307
+Rata-rata kelelahan akhir hari | 0,729 | 1,183 | 0,876
+Rata-rata durasi tidur (jam) | 6,51 | 6,91 | 7,57
+[/TABLE]
+Sumber: Diolah penulis
+Pada Tabel 4.3 terlihat bahwa sistem SORA menghasilkan rata-rata fitness sebesar 6,369. Nilai tersebut jauh lebih tinggi dibandingkan metode greedy yang menghasilkan rata-rata fitness sebesar −33,173 dan metode fixed yang menghasilkan rata-rata fitness sebesar −5.942,307. Nilai rata-rata yang sangat rendah pada metode pembanding disebabkan oleh sejumlah subjek yang menghasilkan solusi tidak layak, yaitu satu subjek pada metode greedy dan 17 subjek pada metode fixed. Hal tersebut mengindikasikan bahwa penyusunan jadwal tidur dengan aturan sederhana tidak mampu memenuhi kendala penjadwalan pada sebagian besar subjek.
+Apabila hanya subjek yang menghasilkan solusi layak pada metode greedy yang diperhitungkan, sistem SORA menghasilkan fitness yang lebih tinggi daripada metode greedy pada 54 dari 58 subjek. Peningkatan fitness rata-rata sebesar 118,9% dengan peningkatan pada median sebesar 145,3%. Dari sisi kelelahan akhir hari, sistem SORA menghasilkan rata-rata kelelahan sebesar 0,729, lebih rendah dibandingkan metode greedy sebesar 1,183 sehingga terjadi penurunan kelelahan akhir hari sebesar 38,4%. Hasil tersebut menunjukkan bahwa jadwal tidur yang disusun sistem SORA tidak hanya unggul dalam nilai fitness, tetapi juga menurunkan kelelahan akhir hari secara lebih efektif daripada skema penjadwalan sederhana.
+[Heading 2] Pembahasan
+Secara keseluruhan, hasil pengujian menunjukkan bahwa pendekatan Genetic Algorithm yang dilanjutkan dengan Hill Climbing mampu menghasilkan jadwal tidur optimal pada seluruh subjek yang diuji. Pada skenario optimasi mingguan, mayoritas subjek memperoleh rata-rata fitness positif dengan median 6,819 dan durasi tidur rata-rata 6,52 jam per hari. Hasil ini sejalan dengan tujuan sistem untuk menyusun jadwal yang menyeimbangkan tuntutan aktivitas, kebutuhan tidur, dan kelelahan akhir hari tanpa harus mencapai durasi tidur maksimum secara kaku.
+Hasil perbandingan terhadap metode baseline memperkuat keunggulan sistem. Jadwal tidur tetap pukul 22.00 terbukti tidak layak pada 17 subjek karena benturan dengan aktivitas wajib yang bersinggungan dengan waktu tidur tetap tersebut, sedangkan skema greedy menghasilkan jadwal yangkurang memperhatikan hubungan antarhari dan kelelahan. Sistem SORA unggul pada 54 dari 58 subjek dengan peningkatan fitness median sebesar 145,3% dan berhasil menurunkan kelelahan akhir hari sebesar 38,4% dibandingkan metode greedy.
+Meskipun demikian, terdapat enam subjek yang menghasilkan rata-rata fitness negatif pada pengujian mingguan. Hal ini terutama berkaitan dengan kendala penjadwalan yang sangat ketat pada subjek tersebut, misalnya banyaknya aktivitas wajib yang tetap dan sedikitnya slot bebas, sehingga algoritma menghasilkan solusi dengan penalti yang besar. Kepekaan hasil terhadap kombinasi parameter pada proses kalibrasi menunjukkan bahwa mekanisme perbaikan kelayakan dan penalti masih dapat disempurnakan untuk menangani subjek dengan karakteristik kendala ekstrem.
+[Heading 1] BAB V
+[Heading 1] PENUTUP
+[Heading 2] Kesimpulan
+Berdasarkan hasil penelitian yang telah dilakukan, dapat ditarik kesimpulan sebagai berikut.
+Sistem SORA berhasil diimplementasikan dengan menggunakan Genetic Algorithm dan Hill Climbing untuk menyusun jadwal tidur optimal. Kalibrasi parameter menggunakan grid search menetapkan kombinasi parameter terbaik pada ukuran populasi 100, laju mutasi 0,10, dan laju crossover 0,80 dengan rata-rata fitness sebesar 2,917 pada dataset kalibrasi.
+Pengujian optimasi mingguan pada 59 subjek menunjukkan bahwa sistem berhasil menyusun jadwal tidur selama tujuh hari dengan median rata-rata fitness 6,819 dan rata-rata durasi tidur 6,52 jam per hari. Sebanyak 53 dari 59 subjek menghasilkan rata-rata fitness positif.
+Hasil perbandingan terhadap metode baseline menunjukkan bahwa sistem SORA menghasilkan fitness yang lebih tinggi daripada metode greedy pada 54 dari 58 subjek dengan peningkatan rata-rata 118,9% dan peningkatan pada median sebesar 145,3%. Sistem juga menurunkan kelelahan akhir hari sebesar 38,4% dibandingkan metode greedy.
+Jadwal tidur tetap pukul 22.00 terbukti menghasilkan solusi tidak layak pada 17 subjek, sedangkan skema greedy tidak layak pada satu subjek, sehingga penyusunan jadwal dengan pendekatan optimasi terbukti lebih unggul daripada skema penjadwalan sederhana.
+[Heading 2] Saran
+Berdasarkan hasil dan keterbatasan penelitian, terdapat beberapa saran untuk penelitian selanjutnya, antara lain sebagai berikut.
+Perlu penyempurnaan mekanisme perbaikan kelayakan dan penalti adaptif agar dapat menangani subjek dengan kendala penjadwalan yang sangat ketat, mengingat masih terdapat enam subjek yang menghasilkan rata-rata fitness negatif pada pengujian mingguan.
+Perlu evaluasi hasil dalam beberapa kali pengulangan dengan random seed berbeda untuk mengurangi kepekaan hasil terhadap nilai seed tertentu.
+Perlu perbandingan kinerja algoritma dengan metode metaheuristik lain, misalnya Simulated Annealing atau algoritma genetik multiobjektif (NSGA-II), untuk memperkaya perbandingan pada penelitian lanjutan.
+Perlu pengujian sistem pada pengguna nyata serta integrasi dengan data wearable untuk memvalidasi pengaruh jadwal tidur yang dihasilkan terhadap kualitas tidur dan kelelahan secara longitudinal.

@@ -1,0 +1,19 @@
+# Runtime + API
+fastapi>=0.115,<1
+uvicorn[standard]>=0.30,<1
+python-multipart>=0.0.9,<1
+openpyxl>=3.1,<4
+
+# Core engine & experiments
+numpy>=1.24,<3
+pandas>=2.0,<4
+
+# Report generation
+tabulate>=0.9,<1
+
+# Streamlit legacy frontend
+streamlit>=1.30,<2
+
+# Development & verification
+pytest>=7.0,<9
+ruff>=0.5,<1
