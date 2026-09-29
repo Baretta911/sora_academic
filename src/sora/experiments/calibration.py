@@ -16,7 +16,6 @@ from sora.config import (
 from sora.data.parser import parse_slot_list
 from sora.genetic_algorithm.constraints import check_feasibility
 from sora.genetic_algorithm.optimizer import GeneticAlgorithmOptimizer
-from sora.hill_climbing.local_search import run_hill_climbing
 
 REPRESENTATIVE_DAYS = ["Senin", "Rabu", "Sabtu"]
 DEFAULT_PARAMETER_GRID = {
@@ -81,7 +80,7 @@ def run_parameter_grid_search(
                     continue
 
                 best_ga = optimizer.run_genetic_algorithm(generations=generations)
-                best_schedule = run_hill_climbing(optimizer, best_ga)
+                best_schedule = best_ga
                 subject_fitness += optimizer.calculate_fitness(best_schedule).fitness
                 evaluated_days += 1
 

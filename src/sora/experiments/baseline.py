@@ -99,7 +99,7 @@ def run_baseline_comparison_with_details(row, parameters: dict, random_seed: int
         generations=150,
         hill_climbing_iterations=parameters.get("hill_climbing_iterations", 20),
     )
-    best_sora = run_hill_climbing(optimizer, best_ga)
+    best_sora = best_ga
 
     greedy = optimizer.repair_chromosome(greedy_schedule(work_slots, class_slots, optimizer.mandatory_absolute))
     fixed = optimizer.repair_chromosome(fixed_schedule(work_slots, class_slots, optimizer.mandatory_absolute))

@@ -121,7 +121,7 @@ def run_weekly_optimization_with_history(
         )
         for record in day_history:
             convergence_history.append({"day": day_name, **record})
-        best_schedule = run_hill_climbing(optimizer, best_ga)
+        best_schedule = best_ga
         result = optimizer.calculate_fitness(best_schedule)
 
         weekly_schedule.append(best_schedule)
