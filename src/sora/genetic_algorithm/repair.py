@@ -163,4 +163,6 @@ def repair_chromosome(chromosome: list[int], context: ScheduleContext) -> list[i
     chromosome = enforce_sleep_target(chromosome, context)
     chromosome = bridge_gaps(chromosome, context)
     chromosome = limit_nap_duration(chromosome, context)
+    chromosome = enforce_mandatory_slots(chromosome, context)
+    validate_chromosome(chromosome)
     return chromosome
