@@ -22,7 +22,17 @@ from sora.experiments.calibration import run_parameter_grid_search
 from sora.experiments.multi_subject import run_multi_subject_comparison, summarize_multi_subject_results
 from sora.experiments.weekly import DAYS, run_weekly_optimization_with_history
 
-DEFAULT_PARAMETERS = {"population_size": 50, "mutation_rate": 0.10, "crossover_rate": 0.80}
+DEFAULT_PARAMETERS = {
+    "population_size": 50,
+    "mutation_rate": 0.10,
+    "crossover_rate": 0.80
+}
+
+THESIS_PARAMETERS = {
+    "population_size": 50,
+    "mutation_rate": 0.01,
+    "crossover_rate": 0.90
+}
 SUMMARY_COLUMNS = [
     "subject",
     "days",
@@ -173,25 +183,35 @@ def main() -> int:
 
     output_dir = setup_output_dir()
     subjects = load_subjects(ROOT / DATASET_TEST)
-    selected_subjects = subjects if args.full else subjects[: args.subjects]
 
-    parameter_file = output_dir / "results" / "best_params_academic.json"
-    if args.skip_calibration or (parameter_file.exists() and not args.quick):
-        if parameter_file.exists() and not args.skip_calibration:
-            parameters = json.loads(parameter_file.read_text(encoding="utf-8"))
-            parameter_source = "grid_search_calibration"
-        else:
-            parameters = DEFAULT_PARAMETERS.copy()
-            parameter_source = "default_fallback"
-    else:
-        parameters, parameter_source = run_calibration(output_dir, args.seed, args.quick)
+    if len(subjects) < 53:
+        raise ValueError(
+            f"Dataset hanya memiliki {len(subjects)} responden unik; "
+            "dibutuhkan minimal 53."
+        )
 
+    selected_subjects = subjects[:53]
+
+    parameters = THESIS_PARAMETERS.copy()
+    parameter_source = "thesis_fixed_parameters"
     summaries = run_weekly_batch(output_dir, selected_subjects, parameters, args.seed)
     summary_df = pd.DataFrame(summaries, columns=SUMMARY_COLUMNS)
     summary_df.to_csv(output_dir / "summary_report.csv", index=False)
 
+    test_df = normalize_questionnaire_dataframe(
+        pd.read_csv(ROOT / DATASET_TEST)
+    )
+
+    selected_df = (
+        test_df
+        .drop_duplicates(subset=["Nama"])
+        .set_index("Nama")
+        .loc[selected_subjects]
+        .reset_index()
+    )
+
     result_df = run_multi_subject_comparison(
-        normalize_questionnaire_dataframe(pd.read_csv(ROOT / DATASET_TEST)).drop_duplicates(subset=["Nama"]),
+        selected_df,
         parameters,
         random_seed=args.seed,
     )
