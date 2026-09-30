@@ -9,7 +9,7 @@ DEFAULT_MUTATION_RATE = 0.10
 DEFAULT_CROSSOVER_RATE = 0.80
 
 DATASET_CALIBRATION = "dataset/dataset_kalibrasi_sora.csv"
-DATASET_TEST = "dataset/kuisoner (Jawaban) - Form Responses 1.csv"
+DATASET_TEST = "dataset/dataset_pengujian_sora.csv"
 PARAMETER_FILE = "results/best_params_academic.json"
 HISTORY_FILE = "results/sleep_history.csv"
 THESIS_OUTPUT_DIR = "thesis_output_academic"
