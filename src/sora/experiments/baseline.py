@@ -216,4 +216,8 @@ def run_baseline_comparison_with_details(
             for method in methods
         },
         "convergence": convergence_history,
+        "daily_metrics": {
+            method: states[method]["daily_metrics"]
+        for method in states
+        },
     }
