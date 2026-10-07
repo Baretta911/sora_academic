@@ -8,7 +8,7 @@ sys.path.insert(0, str(ROOT))
 from src.sora.experiments.baseline import (
     run_baseline_comparison_with_details,
 )
-DATASET_TEST = "dataset/dataset_pengujian_sora_fixed.csv"
+DATASET_TEST = "dataset/dataset_pengujian_sora.csv"
 
 # Sesuaikan import ini dengan fungsi normalisasi
 # yang digunakan oleh demo_thesis.py.
